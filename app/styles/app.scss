@@ -1,0 +1,10 @@
+@import "variables";
+
+html, body {
+  font-family: system-ui, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size;
+}
+
+@import "pod-styles";
