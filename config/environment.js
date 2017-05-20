@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'ember-hackernews-pwa',
+    modulePrefix: 'hackernews',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -13,7 +13,9 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       },
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
+        Object: false,
+        Array: false,
+        Number: false,
         Date: false
       }
     },

@@ -3,6 +3,7 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const autoprefixer = require('autoprefixer');
+const targets = require('./config/targets');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -12,11 +13,11 @@ module.exports = function(defaults) {
       },
       filter: {
         enabled: true,
-         plugins: [
+        plugins: [
           {
             module: autoprefixer,
             options: {
-              browsers: ['last 2 version']
+              browsers: targets.browsers
             }
           }
         ]
