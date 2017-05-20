@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('ask');
   this.route('jobs');
   this.route('about');
+  this.route('item', { path: 'item/:item_id' });
 });
 
 export default Router;

@@ -1,0 +1,51 @@
+& {
+  display: flex;
+  flex-flow: horizontal nowrap;
+  padding: .5rem 1rem .5rem 0;
+
+  &:first-of-type {
+    // padding-top: 4.5rem;
+  }
+}
+
+span.index {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #333;
+  text-align: right;
+  min-width: 3rem;
+}
+
+a {
+  // display: block;
+  font-weight: 400;
+  margin-bottom: .5rem;
+  line-height: 1.2;
+  text-decoration: none;
+  color: #000;
+}
+
+.metadata > p {
+  font-size: .8rem;
+  color: #666;
+}
+
+.metadata {
+  > p {
+    display: flex;
+    flex-flow: horizontal nowrap;
+
+    span {
+      padding-right: 0.5rem;
+    }
+    // align-items: center;
+  }
+
+  span a {
+    text-decoration: underline;
+  }
+}
+
+a {
+  color: #666;
+}

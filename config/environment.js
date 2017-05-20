@@ -26,6 +26,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.firebase = {
+    databaseURL: 'https://hacker-news.firebaseio.com'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;

@@ -1,1 +1,14 @@
-{{outlet}}
+<div class="Items">
+  {{#each items as |item|}}
+    {{hn-item
+      itemID=item.id
+      position=item.position
+      url=item.url
+      score=item.score
+      title=item.title
+      by=item.by
+      time=item.time
+      commentsCount=item.descendants
+    }}
+  {{/each}}
+</div>
