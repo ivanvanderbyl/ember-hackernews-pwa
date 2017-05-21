@@ -1,14 +1,15 @@
 <div class="Items">
-  {{#each items as |item|}}
+  {{#each items key="id" as |item|}}
     {{hn-item
       itemID=item.id
       position=item.position
       url=item.url
-      score=item.score
+      domain=item.domain
+      score=item.points
       title=item.title
-      by=item.by
+      by=item.user
       time=item.time
-      commentsCount=item.descendants
+      commentsCount=item.commentsCount
     }}
   {{/each}}
 </div>
