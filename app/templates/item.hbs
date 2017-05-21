@@ -1,1 +1,21 @@
-{{outlet}}
+<article class="Item">
+  <header>
+    <h2>
+      {{item.title}}
+      {{#if item.domain}}
+        <span class="domain">({{item.domain}})</span>
+      {{/if}}
+    </h2>
+
+    {{#if item.content}}
+      <p class="body-2">
+        {{{item.content}}}
+      </p>
+    {{/if}}
+  </header>
+
+  {{#each item.comments key="id" as |item|}}
+    {{partial "comment"}}
+  {{/each}}
+</article>
+
