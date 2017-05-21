@@ -1,18 +1,41 @@
 & {
   position: fixed;
+  display: block;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: $primary;
+  color: white;
+  line-height: 48px;
+  transition: box-shadow 0.15s ease-out,
+              line-height 0.15s;
+}
+
+nav {
+  padding: 0 1rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-flow: horizontal nowrap;
   align-items: center;
   justify-content: space-between;
+}
 
-  width: 100%;
-  top: 0;
-  z-index: 100;
-  /*height: 48px;*/
-  padding: 0 16px;
-  background-color: $primary;
-  color: white;
-  line-height: 48px;
+&.is-floated {
+  line-height: 32px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12),
+              0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+  .logo a {
+    width: 32px;
+    &:before {
+      width: 24px;
+      height: 32px;
+      background-size: 24px 24px;
+    }
+  }
 }
 
 li {
@@ -23,32 +46,83 @@ a, a:visited {
   color: white;
 }
 
-.links {
+ol.links {
   padding: 0;
+  margin: 0;
   display: flex;
   flex-flow: horizontal nowrap;
   align-items: center;
-  height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: flex-start;
   overflow: hidden;
 
-  &:last-child {
-    align-self: flex-end;
+  &:first-child {
+    // margin-left: 3rem;
   };
+
+  .link {
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 .4rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-content: center;
+      height: 100%;
+    }
+
+    a:after {
+      display: block;
+      content: '';
+      background: #fff;
+      height: 2px;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      transition: transform 300ms ease-out;
+      transform: translateY(3px);
+    }
+
+    a.active:after {
+      transform: translateY(0);
+    }
+  }
 }
 
 .logo {
   margin-right: .6rem;
 
   a {
-    display: block;
-    overflow: hidden;
-    text-indent: -999px;
-    background: url("/assets/images/ember-hn-white.svg") no-repeat center center;
-    background-size: 32px 32px;
-    width: 32px;
-    height: 32px;
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    flex-flow: horizontal nowrap;
+    align-content: center;
+    line-height: 2rem;
+
+    &:before {
+      display: block;
+      content: "";
+      background: url("/assets/images/ember-hn-inverted.svg") no-repeat center center;
+      background-size: 32px 32px;
+      width: 32px;
+      height: 32px;
+      margin-right: 0.5rem;
+      transition: width 0.15s ease-out,
+                  height 0.15s ease-out,
+                  background-size 0.15s ease-out;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    a {
+      margin-right: 0;
+      width: 32px;
+      span {
+        display: none;
+      }
+    }
   }
 }
 
@@ -61,29 +135,4 @@ a, a:visited {
   text-align: right;
 }*/
 
-a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 .4rem;
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-
-a:after {
-  display: block;
-  content: '';
-  background: #fff;
-  height: 2px;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  transition: transform 300ms ease-out;
-  transform: translateY(3px);
-}
-a.active:after {
-  transform: translateY(0);
-}
