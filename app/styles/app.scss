@@ -1,4 +1,4 @@
-@import "reset";
+// @import "reset";
 @import "variables";
 
 html, body {
@@ -6,6 +6,11 @@ html, body {
   padding: 0;
   margin: 0;
   font-size: $font-size;
+  box-sizing: border-box;
+}
+
+html * {
+  box-sizing: border-box;
 }
 
 body {
@@ -15,6 +20,64 @@ body {
 .Items {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.Loading {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+article.Item {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+
+  h2 {
+    font-weight: lighter;
+    font-size: 1.5rem;
+
+    span.domain {
+      font-size: 1rem;
+    }
+  }
+
+  header {
+    display: flex;
+    flex-flow: horizontal nowrap;
+    .user {
+      color: $primary;
+      margin-right: 0.5rem;
+
+      i.icon {
+        width: 16px;
+        height: 16px;;
+        background-size: 16px 16px;
+        background-image: url("/assets/images/ic_person_black_24px.svg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        display: inline-block;
+        text-indent: -999px;
+        overflow: hidden;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}
+
+article.Comment {
+  font-size: 0.9rem;
+  border-bottom: 1px solid rba(black, 0.06);
+
+  p:first-child {
+    margin-top: 0;
+  }
+
+  article.Comment {
+    padding-left: 1rem;
+  }
 }
 
 @import "pod-styles";
