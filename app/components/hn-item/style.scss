@@ -3,17 +3,34 @@
   flex-flow: horizontal nowrap;
   padding: .5rem 1rem .5rem 0;
 
+  border-bottom: 1px solid rgba(black, 0.06);
+
   &:first-of-type {
     // padding-top: 4.5rem;
   }
 }
 
+h2 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+span.domain {
+  font-size: 1rem;
+}
+
 span.index {
   font-size: 1.5rem;
   margin-right: 1rem;
-  color: #333;
+  color: rgba(black, 0.24);
   text-align: right;
-  min-width: 3rem;
+  min-width: 2rem;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5rem;
 }
 
 a {
@@ -23,6 +40,10 @@ a {
   line-height: 1.2;
   text-decoration: none;
   color: #000;
+
+  &:visited {
+    color: rgba(black, 0.54);
+  }
 }
 
 .metadata > p {
@@ -44,8 +65,4 @@ a {
   span a {
     text-decoration: underline;
   }
-}
-
-a {
-  color: #666;
 }

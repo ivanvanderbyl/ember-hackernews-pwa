@@ -1,6 +1,14 @@
 <span class="index">{{position}}</span>
 <div class="metadata">
-  <h2><a href={{url}}>{{title}}</a></h2>
+  <h2>
+    {{#if isSelfLink}}
+      {{#link-to "item" itemID}}{{title}}{{/link-to}}
+    {{else}}
+      <a href={{url}}>{{title}}</a>
+    {{/if}}
+
+    {{#if domain}}<span class="domain">({{domain}})</span>{{/if~}}
+  </h2>
   <p>
     <span>{{pluralize score "point"}} by {{by}} {{moment-from-now timestamp}}</span>
     <span>|

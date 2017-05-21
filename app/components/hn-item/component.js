@@ -15,9 +15,18 @@ export default Ember.Component.extend({
 
   score: 0,
 
+  domain: null,
+
   commentsCount: 0,
 
   time: 0,
+
+  isSelfLink: computed('url', {
+    get() {
+      let url = this.get('url');
+      return /^item\?id\=/.test(url);
+    }
+  }),
 
   timestamp: computed('time', {
     get() {
