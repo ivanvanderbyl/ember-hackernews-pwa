@@ -1,4 +1,12 @@
-import Ember from 'ember';
+import IndexRoute from './index';
 
-export default Ember.Route.extend({
+export default IndexRoute.extend({
+  page: 'ask',
+
+  renderTemplate() {
+    this.render('index', {
+      controller: 'index',
+      into: 'application'
+    });
+  }
 });

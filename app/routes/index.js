@@ -1,35 +1,25 @@
-import Ember from 'ember';
-import firebase from 'firebase';
-import RSVP from 'rsvp';
+import Route from 'ember-route';
+import service from 'ember-service/inject';
 
-export default Ember.Route.extend({
+export default Route.extend({
+  ajax: service(),
+
+  apiHost: 'https://node-hnapi.herokuapp.com',
+
+  page: 'news',
 
   model() {
-    let config = {
-      databaseURL: 'https://hacker-news.firebaseio.com'
-    };
-    firebase.initializeApp(config);
-
-    return new RSVP.Promise((resolve) => {
-      firebase.database().ref('v0/topstories').once('value', (snap) => {
-        let ids = snap.val();
-
-        resolve(RSVP.all(ids.slice(0, 20).map((id, index) => {
-          return new RSVP.Promise((resolve) => {
-            firebase.database().ref(`v0/item/${id}`).once('value', (snap) => {
-              let item = snap.val();
-              item.position = index + 1;
-              resolve(item);
-            });
-          });
-        })));
-      });
-    });
+    return this.get('ajax').request(`${this.get('apiHost')}/${this.get('page')}`);
   },
 
   setupController(controller, items) {
-    console.log(items);
+    items.forEach((item, index) => item.position = index + 1);
+    console.info('First post:', items[0].title);
+    console.log(controller);
     controller.setProperties({ items });
-  }
+  },
 
+  resetController(controller) {
+    controller.set('items', []);
+  }
 });
