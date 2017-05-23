@@ -6,8 +6,18 @@ module.exports = function(deployTarget) {
 
     build: {
       environment: 'production'
+    },
+
+    'gcloud': {
+      bucket: 'hackernews-production',
+      key: 'fastboot-release.json'
+    },
+    'gcloud-storage': {
+      bucket: 'hackernews-production'
+    },
+    'elastic-beanstalk': {
+      bucket: 'hackernews-io'
     }
-    // include other plugin configuration that applies to all deploy targets here
   };
 
   ENV.s3 = {
@@ -35,6 +45,7 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'staging') {
     ENV.build.environment = 'production';
+
     // configure other plugins for staging deploy target here
   }
 
