@@ -11,14 +11,14 @@
   </h2>
   <p>
     <span>{{pluralize score "point"}} by {{by}} {{moment-from-now timestamp}}</span>
-    <span>|
-      {{#link-to "item" itemID~}}
-        {{#if commentsCount}}
-          {{~pluralize commentsCount "comment"~}}
-        {{else}}
-          discuss
-        {{/if}}
-      {{~/link-to~}}
-    </span>
   </p>
+</div>
+<div class="Comments">
+  {{#link-to "item" itemID~}}
+    {{#if commentsCount}}
+      {{commentsCount}}
+    {{else}}
+      <button class="Button Button--flat Button--icon Button--comment">Discuss</button>
+    {{/if}}
+  {{~/link-to~}}
 </div>
