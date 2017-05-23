@@ -34,7 +34,12 @@ module.exports = function(environment) {
           sendHitTask: environment !== 'development'
         }
       }
-    ]
+    ],
+
+    sentry: {
+      dsn: 'https://eada24402e61467c8c91cf71cb4e50c0@sentry.io/171403'
+    }
+
   };
 
   if (environment === 'development') {
