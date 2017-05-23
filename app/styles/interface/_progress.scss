@@ -5,6 +5,7 @@
   height: $bar-height;
   width: 500px;
   max-width: 100%;
+  background-color: rgba($progress-main-color,0.24);
 }
 
 .mdl-progress > .bar {
@@ -34,14 +35,14 @@
 }
 
 // Webkit only
-// @supports (-webkit-appearance:none) {
-//   .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate) > .auxbar,
-//   .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
-//     background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
-//       linear-gradient(to right, $progress-main-color, $progress-main-color);
-//     mask: url('#{$progress-image-path}/buffer.svg?embed');
-//   }
-// }
+@supports (-webkit-appearance:none) {
+  .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate) > .auxbar,
+  .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
+    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
+      linear-gradient(to right, $progress-main-color, $progress-main-color);
+    mask: url('/assets/images/buffer.svg?embed');
+  }
+}
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
