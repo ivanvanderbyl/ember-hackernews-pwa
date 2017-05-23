@@ -1,5 +1,6 @@
 import IndexRoute from './index';
 
 export default IndexRoute.extend({
-  page: 'newest'
+  page: 'newest',
+  templateName: 'index'
 });

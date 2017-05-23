@@ -14,8 +14,7 @@ export default Route.extend({
 
   setupController(controller, items) {
     items.forEach((item, index) => item.position = index + 1);
-    console.info('First post:', items[0].title);
-    console.log(controller);
+    // console.info('First post:', items[0].title);
     controller.setProperties({ items });
   },
 
