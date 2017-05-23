@@ -1,9 +1,28 @@
 import Ember from 'ember';
 import config from './config/environment';
+import service from 'ember-service/inject';
 
-const Router = Ember.Router.extend({
+const { get, run, Router: EmberRouter } = Ember;
+
+const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+
+  metrics: service(),
+
+  didTransition() {
+    this._super(...arguments);
+    this._trackPage();
+  },
+
+  _trackPage() {
+    run.scheduleOnce('afterRender', this, () => {
+      let page = this.get('url');
+      let title = this.getWithDefault('currentRouteName', 'unknown');
+
+      get(this, 'metrics').trackPage({ page, title });
+    });
+  }
 });
 
 Router.map(function() {
