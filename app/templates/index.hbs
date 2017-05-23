@@ -1,15 +1,1 @@
-<div class="Items">
-  {{#each items key="id" as |item|}}
-    {{hn-item
-      itemID=item.id
-      position=item.position
-      url=item.url
-      domain=item.domain
-      score=item.points
-      title=item.title
-      by=item.user
-      time=item.time
-      commentsCount=item.commentsCount
-    }}
-  {{/each}}
-</div>
+{{news-list items}}
