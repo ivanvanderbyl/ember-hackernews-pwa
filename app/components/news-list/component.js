@@ -5,12 +5,7 @@ const NewsList = Component.extend({
 
   classNames: ['Items'],
 
-  items: [],
-
-  didInsertElement() {
-    console.log(this.get('items')[0]);
-  }
-
+  items: []
 });
 
 NewsList.reopenClass({
