@@ -1,6 +1,6 @@
 & {
   display: flex;
-  flex-flow: horizontal nowrap;
+  flex-flow: row nowrap;
   border-bottom: 1px solid $divider-grey;
 
   &:first-of-type {
@@ -20,10 +20,13 @@ span.domain {
 
 span.index {
   font-size: 1.5rem;
-  margin-right: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   color: rgba(black, 0.24);
-  text-align: right;
+  // text-align: right;
   min-width: 2rem;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
 }
 
 p {
@@ -46,16 +49,36 @@ a {
 
 .Comments {
   display: flex;
-  flex-flow: horizontal nowrap;
-  justify-content: center;
+  flex-flow: row nowrap;
   align-items: center;
   padding: 0 0.5rem;
   background: rgba(black, 0.01);
   flex-basis: 48px;
+  font-size: 0.8rem;
   border-left: 1px solid $divider-grey;
+  @media screen and (min-width: 1200px) {
+    border-right: 1px solid $divider-grey;
+  }
 
   a {
-    display: block;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    $icon-size: 1.5rem;
+
+    &:before {
+      content: "";
+      display: block;
+      background: url("/assets/images/ic_comment_black_24px.svg") no-repeat center center;
+      width: $icon-size;
+      height: $icon-size;
+      background-size: $icon-size $icon-size;
+      opacity: 0.1;
+    }
   }
 }
 
@@ -70,7 +93,7 @@ a {
 
   > p {
     display: flex;
-    flex-flow: horizontal nowrap;
+    flex-flow: row nowrap;
 
     span {
       padding-right: 0.5rem;

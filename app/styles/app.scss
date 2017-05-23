@@ -16,6 +16,12 @@ html * {
 
 body {
   margin-top: 48px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p.secondary {
+  color: $secondary-grey;
 }
 
 .Items {
@@ -25,6 +31,8 @@ body {
 
 .Container {
   padding: 0 1rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .Loading {
@@ -36,9 +44,8 @@ body {
 }
 
 article.Item {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 0rem;
+  max-width: 720px;
+  padding: 1rem 0;
 
   a {
     font-weight: 400;
@@ -52,7 +59,7 @@ article.Item {
     }
   }
 
-  header {
+  > header {
     padding-bottom: 1rem;
   }
 
@@ -71,7 +78,7 @@ article.Item {
 
 article.Comment {
   font-size: 0.9rem;
-  border-bottom: 1px solid rba(black, 0.06);
+
   header {
     display: flex;
     flex-flow: horizontal nowrap;
