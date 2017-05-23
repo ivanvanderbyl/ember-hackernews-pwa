@@ -29,7 +29,9 @@ nav {
               0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
   .logo a {
-    width: 32px;
+    @media screen and (max-width: 425px) {
+      width: 32px;
+    }
     &:before {
       width: 24px;
       height: 32px;
@@ -117,8 +119,10 @@ ol.links {
 
   @media screen and (max-width: 425px) {
     a {
-      margin-right: 0;
       width: 32px;
+      &:before {
+        margin-right: 0;
+      }
       span {
         display: none;
       }
