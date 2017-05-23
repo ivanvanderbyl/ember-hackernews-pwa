@@ -6,25 +6,25 @@ module.exports = function(deployTarget) {
 
     build: {
       environment: 'production'
-    },
-
-    'gcloud': {
-      bucket: 'hackernews-production',
-      key: 'fastboot-release.json'
-    },
-    'gcloud-storage': {
-      bucket: 'hackernews-production'
-    },
-    'elastic-beanstalk': {
-      bucket: 'hackernews-io'
     }
+
+    // 'gcloud': {
+    //   bucket: 'hackernews-production',
+    //   key: 'fastboot-release.json'
+    // },
+    // 'gcloud-storage': {
+    //   bucket: 'hackernews-production'
+    // },
+    // 'elastic-beanstalk': {
+    //   bucket: 'hackernews-io'
+    // }
   };
 
   ENV.s3 = {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     bucket: 'hackernews-io',
-    region: 'us-west-2',
+    region: 'us-east-1',
     filePattern: '**/*.{js,css,png,gif,ico,jpg,map,xml,txt,svg,swf,eot,ttf,woff,woff2,html,json}',
     allowOverwrite: true
   };
@@ -33,9 +33,8 @@ module.exports = function(deployTarget) {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     bucket: 'hackernews-io',
-    region: 'us-west-2',
-    allowOverwrite: true,
-    cacheControl: 'max-age=0, no-cache'
+    region: 'us-east-1',
+    allowOverwrite: true
   };
 
   if (deployTarget === 'development') {

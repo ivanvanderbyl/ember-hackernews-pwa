@@ -1,8 +1,0 @@
-# Node
-node_modules/*
-
-# Google Cloud Files
-config.json
-
-.vscode
-dist

@@ -16,12 +16,12 @@ module.exports = function(defaults) {
     },
 
     'asset-cache': {
-      version: '3'
+      version: '4'
     },
 
     fingerprint: {
-      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
-      prepend: 'https://storage.googleapis.com/hackernews-production/'
+      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg']
+      // prepend: 'https://hackernews.io/'
     },
 
     postcssOptions: {
