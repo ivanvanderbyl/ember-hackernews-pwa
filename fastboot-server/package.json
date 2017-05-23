@@ -1,0 +1,25 @@
+{
+  "name": "fastboot-server",
+  "version": "0.0.0",
+  "description": "A FastBoot server for Google Cloud",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gcloud --project=<%= dasherizedModuleName ?> app deploy"
+  },
+  "engines": {
+    "node": "~5.3"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "bugs": "",
+  "dependencies": {
+    "@google/cloud-debug": "0.8.1",
+    "fastboot-app-server": "^1.0.0-rc.5",
+    "fastboot-gcloud-storage-downloader": "^0.1.0",
+    "fastboot-gcloud-storage-notifier": "^0.1.0"
+  }
+}

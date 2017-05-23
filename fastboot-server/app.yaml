@@ -1,0 +1,8 @@
+runtime: custom
+env: flex
+api_version: 1
+env_variables:
+  FASTBOOT_GCS_BUCKET: hackernews-io.appspot.com
+  FASTBOOT_GCS_KEY: fastboot-release.json
+health_check:
+  enable_health_check: False
