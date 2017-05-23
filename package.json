@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
+    "babel-plugin-minify-dead-code-elimination": "^0.1.6",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
@@ -32,6 +33,7 @@
     "ember-cli-deploy-s3": "^1.0.0",
     "ember-cli-deploy-s3-index": "^1.0.0",
     "ember-cli-eslint": "^3.0.0",
+    "ember-cli-fastboot": "^1.0.0-beta.18",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.4.0",
     "ember-cli-inject-live-reload": "^1.4.1",
