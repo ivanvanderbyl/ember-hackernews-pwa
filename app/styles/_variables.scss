@@ -1,6 +1,8 @@
 $font-size: 16px;
 $primary: #CE412C;
 
+$divider-grey: rgba(black, 0.06);
+
 // The two possible colors for overlayed text.
 $color-dark-contrast: white !default;
 $color-light-contrast: black !default;
@@ -15,7 +17,7 @@ $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
 
 /* PROGRESS */
-$progress-main-color: unquote("rgb(#{$primary})") !default;
-$progress-secondary-color: unquote("rgba(#{$color-primary-contrast}, 0.7)") !default;
-$progress-fallback-buffer-color: unquote("rgba(#{$color-primary-contrast}, 0.9)") !default;
+$progress-main-color: $primary;
+$progress-secondary-color: rgba($progress-main-color, 0.7);
+$progress-fallback-buffer-color: rgba($progress-main-color, 0.9);
 $bar-height: 4px !default;
