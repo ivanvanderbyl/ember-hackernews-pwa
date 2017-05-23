@@ -11,8 +11,17 @@ module.exports = function(defaults) {
       includePolyfill: true
     },
 
+    'babel': {
+      plugins: ['minify-dead-code-elimination']
+    },
+
     'asset-cache': {
-      version: '2'
+      version: '3'
+    },
+
+    fingerprint: {
+      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
+      prepend: 'https://storage.googleapis.com/hackernews-production/'
     },
 
     postcssOptions: {
