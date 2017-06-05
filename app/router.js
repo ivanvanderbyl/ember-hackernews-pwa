@@ -4,6 +4,10 @@ import service from 'ember-service/inject';
 
 const { get, run, Router: EmberRouter } = Ember;
 
+const requestIdleCallback = window.requestIdleCallback || function(cb) {
+  run.scheduleOnce('afterRender', cb);
+};
+
 const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL,
@@ -16,7 +20,7 @@ const Router = EmberRouter.extend({
   },
 
   _trackPage() {
-    run.scheduleOnce('afterRender', this, () => {
+    requestIdleCallback(() => {
       let page = this.get('url');
       let title = this.getWithDefault('currentRouteName', 'unknown');
 
