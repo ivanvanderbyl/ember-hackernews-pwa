@@ -16,7 +16,7 @@ module.exports = function(defaults) {
     },
 
     'asset-cache': {
-      version: '4'
+      version: '5'
     },
 
     fingerprint: {
