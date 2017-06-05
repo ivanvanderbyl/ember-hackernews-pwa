@@ -1,13 +1,13 @@
 {{#each items key="id" as |item|}}
   {{hn-item
-    itemID=item.id
-    position=item.position
-    url=item.url
-    domain=item.domain
-    score=item.points
-    title=item.title
-    by=item.user
-    time=item.time
-    commentsCount=item.comments_count
+    itemID=(unbound item.id)
+    position=(unbound item.position)
+    url=(unbound item.url)
+    domain=(unbound item.domain)
+    score=(unbound item.points)
+    title=(unbound item.title)
+    by=(unbound item.user)
+    time=(unbound item.time)
+    commentsCount=(unbound item.comments_count)
   }}
 {{/each}}
