@@ -8,7 +8,7 @@ const targets = require('./config/targets');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-cli-babel': {
-      includePolyfill: true
+      includePolyfill: false
     },
 
     'babel': {
