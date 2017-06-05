@@ -1,15 +1,14 @@
 import Route from 'ember-route';
-import service from 'ember-service/inject';
+import fetch from 'fetch';
 
 export default Route.extend({
-  ajax: service(),
-
   apiHost: 'https://node-hnapi.herokuapp.com',
 
   page: 'news',
 
   model() {
-    return this.get('ajax').request(`${this.get('apiHost')}/${this.get('page')}`);
+    let pageUrl = `${this.get('apiHost')}/${this.get('page')}`;
+    return fetch(pageUrl).then((response) => response.json());
   },
 
   setupController(controller, items) {

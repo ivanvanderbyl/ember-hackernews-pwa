@@ -1,5 +1,4 @@
 import Component from 'ember-component';
-import $ from 'jquery';
 import Ember from 'ember';
 const { run } = Ember;
 
@@ -18,19 +17,21 @@ export default Component.extend({
 
     this.originalTopOffset = originalTopOffset;
     this.originalHeight = clientHeight;
-    $(document).on('touchmove.scrollable', this._handleScroll.bind(this));
-    $(window).on('scroll.scrollable', this._handleScroll.bind(this));
+
+    document.addEventListener('touchmove', this._handleScroll.bind(this), { passive: true });
+    window.addEventListener('scroll', this._handleScroll.bind(this), { passive: true });
+
     this._handleScroll();
   },
 
   willDestroyElement() {
-    $(document).off('touchmove.scrollable', this._handleScroll);
-    $(window).off('scroll.scrollable', this._handleScroll);
+    document.removeEventListener('touchmove', this._handleScroll);
+    window.removeEventListener('scroll', this._handleScroll);
   },
 
   _handleScroll() {
-    let { originalTopOffset } = this;
-    run(this, () => {
+    run.join(this, () => {
+      let { originalTopOffset } = this;
       this.set('floated', window.pageYOffset > originalTopOffset);
     });
   }
