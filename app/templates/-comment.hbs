@@ -1,7 +1,7 @@
 <article class="Comment">
   <header>
     <span class="user"><i class="icon">person</i> {{item.user}}</span>
-    {{moment-from-now (mult 1000 item.time)}}
+    {{time-format item.time}}
   </header>
   <div class="content">{{{item.content}}}</div>
 

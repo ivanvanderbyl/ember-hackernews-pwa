@@ -10,7 +10,7 @@
     {{#if domain}}<span class="domain">({{domain}})</span>{{/if~}}
   </h2>
   <p>
-    <span>{{pluralize score "point"}} by {{by}} {{moment-from-now timestamp}}</span>
+    <span>{{pluralize score "point"}} by {{by}} {{time-format timestamp}}</span>
   </p>
 </div>
 <div class="Comments">
