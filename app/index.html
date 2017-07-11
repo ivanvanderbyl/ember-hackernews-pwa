@@ -9,7 +9,9 @@
 
     {{content-for "head"}}
 
-    <link async rel="stylesheet" href="{{rootURL}}assets/hackernews.css">
+    <script rel="preload" src="{{rootURL}}assets/vendor.js"></script>
+    <link rel="preload" rel="stylesheet" href="{{rootURL}}assets/hackernews.css"
+      onload="this.rel='stylesheet'">
 
     {{content-for "head-footer"}}
   </head>
@@ -31,8 +33,15 @@
       </div>
     </div>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/hackernews.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        let script = document.createElement('script');
+        script.src = '{{rootURL}}assets/hackernews.js';
+        document.head.appendChild(script);
+      });
+    </script>
+
+    <!-- <script src="{{rootURL}}assets/hackernews.js"></script> -->
 
     {{content-for "body-footer"}}
   </body>
