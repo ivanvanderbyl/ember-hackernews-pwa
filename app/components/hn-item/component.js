@@ -2,7 +2,6 @@ import Component from 'ember-component';
 import computed from 'ember-computed';
 
 const { equal } = computed;
-
 export default Component.extend({
   tagName: 'article',
 

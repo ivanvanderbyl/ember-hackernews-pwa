@@ -1,5 +1,8 @@
+import Ember from 'ember';
 import fetch from 'fetch';
 import Route from 'ember-route';
+
+const { run } = Ember;
 
 export default Route.extend({
   apiHost: 'https://node-hnapi.herokuapp.com',
@@ -12,6 +15,10 @@ export default Route.extend({
 
   setupController(controller, item) {
     controller.setProperties({ item });
-  }
+  },
 
+  activate() {
+    this._super(...arguments);
+    run.next(() => window.scrollTo(0, 0));
+  }
 });
