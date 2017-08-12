@@ -7,10 +7,14 @@
       <a href={{url}}>{{title}}</a>
     {{/if}}
 
-    {{#if domain}}<span class="domain">({{domain}})</span>{{/if~}}
+    {{#if domain}}<span class="domain">({{domain}})</span>{{/if}}
   </h2>
   <p>
-    <span>{{pluralize score "point"}} by {{by}} {{time-format timestamp}}</span>
+  	{{#if isJob}}
+  		<span>{{time-format timestamp}}</span>
+  	{{else}}
+    	<span>{{pluralize safeScore "point"}} by {{by}} {{time-format timestamp}}</span>
+    {{/if}}
   </p>
 </div>
 <div class="Comments">
