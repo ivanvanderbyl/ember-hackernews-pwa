@@ -1,9 +1,14 @@
-import Ember from 'ember';
+import Component from 'ember-component';
 import computed from 'ember-computed';
-export default Ember.Component.extend({
+
+const { equal } = computed;
+
+export default Component.extend({
   tagName: 'article',
 
   itemID: null,
+
+  type: null,
 
   position: 1,
 
@@ -20,6 +25,12 @@ export default Ember.Component.extend({
   commentsCount: 0,
 
   time: 0,
+
+  isJob: equal('type', 'job'),
+
+  safeScore: computed('score', function() {
+  	return this.get('score') || 0;
+  }),
 
   isSelfLink: computed('url', {
     get() {
