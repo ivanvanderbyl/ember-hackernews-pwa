@@ -43,7 +43,6 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-component-css": "^0.3.3",
     "ember-export-application-global": "^2.0.0",
-    "ember-fetch": "^2.1.0",
     "ember-hammertime": "^1.2.1",
     "ember-inflector": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
@@ -64,6 +63,7 @@
   },
   "private": true,
   "dependencies": {
+    "ember-fetch": "^3.2.8",
     "fastboot-app-server": "^1.0.1"
   }
 }
