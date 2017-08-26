@@ -28,7 +28,7 @@ export default Component.extend({
   isJob: equal('type', 'job'),
 
   safeScore: computed('score', function() {
-  	return this.get('score') || 0;
+    return this.get('score') || 0;
   }),
 
   isSelfLink: computed('url', {
