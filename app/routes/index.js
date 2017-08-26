@@ -27,7 +27,9 @@ export default Route.extend({
 
   activate() {
     this._super(...arguments);
-    run.next(() => window.scrollTo(0, this.get('lastScroll')));
+    if (typeof FastBoot === 'undefined') {
+      run.scheduleOnce('afterRender', this, () => window.scrollTo(0, this.get('lastScroll')));
+    }
   },
 
   actions: {

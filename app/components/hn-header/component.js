@@ -12,21 +12,25 @@ export default Component.extend({
   classNameBindings: ['floated:is-floated:not-floated'],
 
   didInsertElement() {
-    let originalTopOffset = this.element ? this.element.offsetTop : 0;
-    let clientHeight = this.element ? this.element.clientHeight : 0;
+    if (typeof FastBoot === 'undefined') {
+      let originalTopOffset = this.element ? this.element.offsetTop : 0;
+      let clientHeight = this.element ? this.element.clientHeight : 0;
 
-    this.originalTopOffset = originalTopOffset;
-    this.originalHeight = clientHeight;
+      this.originalTopOffset = originalTopOffset;
+      this.originalHeight = clientHeight;
 
-    document.addEventListener('touchmove', this._handleScroll.bind(this), { passive: true });
-    window.addEventListener('scroll', this._handleScroll.bind(this), { passive: true });
+      document.addEventListener('touchmove', this._handleScroll.bind(this), { passive: true });
+      window.addEventListener('scroll', this._handleScroll.bind(this), { passive: true });
 
-    this._handleScroll();
+      this._handleScroll();
+    }
   },
 
   willDestroyElement() {
-    document.removeEventListener('touchmove', this._handleScroll);
-    window.removeEventListener('scroll', this._handleScroll);
+    if (typeof FastBoot === 'undefined') {
+      document.removeEventListener('touchmove', this._handleScroll);
+      window.removeEventListener('scroll', this._handleScroll);
+    }
   },
 
   _handleScroll() {
