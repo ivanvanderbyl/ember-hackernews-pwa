@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: hn
-        image: gcr.io/hackernews-io/github-ivanvanderbyl-ember-hackernews-pwa:52bade825193530db4c521a1544709e142d8e84c
+        image: gcr.io/hackernews-io/github-ivanvanderbyl-ember-hackernews-pwa:${execution.from_revision.revision}
         ports:
         - containerPort: 8080
 
