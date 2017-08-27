@@ -11,8 +11,7 @@ spec:
     spec:
       containers:
       - name: hn
-        image: gcr.io/hackernews-io/github-ivanvanderbyl-ember-hackernews-pwa:latest
-        imagePullPolicy: Always
+        image: asia.gcr.io/hackernews-io/github-ivanvanderbyl-ember-hackernews-pwa:${execution.to_revision.revision}
         ports:
         - containerPort: 8080
 

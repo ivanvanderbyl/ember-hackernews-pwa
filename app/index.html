@@ -9,6 +9,9 @@
 
     {{content-for "head"}}
 
+    <link rel="dns-prefetch" href="//staging.hackernews.io">
+    <link rel="dns-prefetch" href="//node-hnapi.herokuapp.com">
+    <link rel="preload" href="https://node-hnapi.herokuapp.com/news">
     <link rel="stylesheet" href="{{rootURL}}assets/hackernews.css" >
 
     {{content-for "head-footer"}}
@@ -31,7 +34,7 @@
       </div>
     </div>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script async src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/hackernews.js"></script>
 
     {{content-for "body-footer"}}
