@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hackernews-deploy
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: hn
+    spec:
+      containers:
+      - name: hn
+        image: gcr.io/hackernews-io/github-ivanvanderbyl-ember-hackernews-pwa:52bade825193530db4c521a1544709e142d8e84c
+        ports:
+        - containerPort: 8080
+
