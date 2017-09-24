@@ -1,11 +1,14 @@
 import Ember from 'ember';
 import Route from 'ember-route';
 import fetch from 'fetch';
-
+import { inject as service } from '@ember/service/inject';
+import { computed } from '@ember/object';
 const { run, getWithDefault } = Ember;
 
 export default Route.extend({
   apiHost: 'https://node-hnapi.herokuapp.com',
+  fastboot: service(),
+  isFastBoot: computed.reads('fastboot.isFastBoot'),
 
   page: 'news',
 
@@ -15,6 +18,9 @@ export default Route.extend({
   },
 
   setupController(controller, items) {
+    if (this.get('isFastBoot')) {
+      items = items.slice(0, 3);
+    }
     items.forEach((item, index) => item.position = index + 1);
     controller.setProperties({ items });
   },
