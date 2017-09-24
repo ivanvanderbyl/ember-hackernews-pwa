@@ -3,8 +3,17 @@ kind: Ingress
 metadata:
   name: hackernews-ingress
   annotations:
+    kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.global-static-ip-name: hackernews-static-ip
+    kubernetes.io/ingress.class: "gce"
+    ingress.kubernetes.io/force-ssl-redirect: 'true'
 spec:
   backend:
     serviceName: hackernews-production
     servicePort: 8080
+  tls:
+  - secretName: hackernews-tls
+    hosts:
+    # - hackernews.io
+    - staging.hackernews.io
+
