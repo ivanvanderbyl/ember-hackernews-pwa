@@ -11,7 +11,7 @@ steps:
   - 'gcr.io/$PROJECT_ID/hackernews-fastboot:$REVISION_ID'
 
 - name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/hackernews-production hackernews-production=gcr.io/$PROJECT_ID/hackernews-fastboot:$REVISION_ID']
+  args: ['set', 'image', 'deployment/hackernews-production', 'hackernews-production=gcr.io/$PROJECT_ID/hackernews-fastboot:$REVISION_ID']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=australia-southeast1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=cluster-1'
