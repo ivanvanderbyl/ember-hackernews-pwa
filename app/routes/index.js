@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import Route from 'ember-route';
 import fetch from 'fetch';
-import { inject as service } from '@ember/service/inject';
+import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 const { run, getWithDefault } = Ember;
 
