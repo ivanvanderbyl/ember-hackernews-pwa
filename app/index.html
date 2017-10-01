@@ -12,7 +12,7 @@
     <link rel="dns-prefetch" href="//staging.hackernews.io">
     <link rel="dns-prefetch" href="//node-hnapi.herokuapp.com">
     <!-- <link rel="preload" href="https://node-hnapi.herokuapp.com/news"> -->
-    <link rel="stylesheet" href="{{rootURL}}assets/hackernews.css" >
+    <link rel="preload" rel="stylesheet" as="style" href="{{rootURL}}assets/hackernews.css" onload="this.rel='stylesheet'">
 
     {{content-for "head-footer"}}
   </head>
