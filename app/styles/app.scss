@@ -119,4 +119,23 @@ foo.reset {
   color: black;
 }
 
+.Notice {
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+
+  p {
+    text-align: center;
+    border: 1px solid $divider-grey;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 0 2rem;
+  }
+}
+
 @import "pod-styles";
+
+

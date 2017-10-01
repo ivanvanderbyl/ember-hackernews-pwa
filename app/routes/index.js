@@ -17,10 +17,7 @@ export default Route.extend({
     return fetch(pageUrl).then(response => response.json())
   },
 
-  setupController(controller, items) {
-    if (this.get('isFastBoot')) {
-      items = items.slice(0, 3)
-    }
+  setupController(controller, items = []) {
     items.forEach((item, index) => (item.position = index + 1))
     controller.setProperties({ items })
   },
@@ -33,18 +30,20 @@ export default Route.extend({
 
   activate() {
     this._super(...arguments)
-    if (typeof FastBoot === 'undefined') {
+    if (!this.get('isFastBoot')) {
       run.scheduleOnce('afterRender', this, () =>
-        window.scrollTo(0, this.get('lastScroll'))
+        window.scrollTo(0, this.get('lastScroll')),
       )
     }
   },
 
   actions: {
     willTransition() {
-      this._super(...arguments)
-      let lastScroll = getWithDefault(window || {}, 'scrollY', 0)
-      this.set('lastScroll', lastScroll)
-    }
-  }
+      if (!this.get('isFastBoot')) {
+        this._super(...arguments)
+        let lastScroll = getWithDefault(window || {}, 'scrollY', 0)
+        this.set('lastScroll', lastScroll)
+      }
+    },
+  },
 })
