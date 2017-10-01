@@ -1,0 +1,57 @@
+{
+  "apiVersion": "21-08-17",
+  "plan": [
+    {
+      "steps": [
+        {
+          "name": "Hackernews homepage",
+          "actions": [
+            { "visit":  "https://staging.hackernews.io" },
+            {
+              "click": "article:nth-of-type(1) > div.Comments > a"
+            },
+            {
+              "click": [
+                { "find-element-with-text": ["a", "new"] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hackernews new",
+          "actions": [
+            {
+              "click": "article:nth-of-type(1) > div.Comments > a"
+            },
+            {
+              "click": [
+                { "find-element-with-text": ["a", "show"] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hackernews show",
+          "actions": [
+            {
+              "click": "article:nth-of-type(1) > div.Comments > a"
+            },
+            {
+              "click": [
+                { "find-element-with-text": ["a", "ask"] }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Hackernews jobs",
+          "actions": [
+            {
+              "click": "article:nth-of-type(1) > div.Comments > a"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
