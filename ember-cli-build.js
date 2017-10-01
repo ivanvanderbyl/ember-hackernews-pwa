@@ -15,9 +15,9 @@ module.exports = function(defaults) {
       plugins: ['minify-dead-code-elimination']
     },
 
-    'asset-cache': {
-      version: '5'
-    },
+    // 'asset-cache': {
+    //   version: '5'
+    // },
 
     fingerprint: {
       extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg']

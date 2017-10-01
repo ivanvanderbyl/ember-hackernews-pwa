@@ -9,10 +9,8 @@
 
     {{content-for "head"}}
 
-    <link rel="dns-prefetch" href="//staging.hackernews.io">
-    <link rel="dns-prefetch" href="//node-hnapi.herokuapp.com">
-    <!-- <link rel="preload" href="https://node-hnapi.herokuapp.com/news"> -->
-    <link rel="preload" rel="stylesheet" as="style" href="{{rootURL}}assets/hackernews.css" onload="this.rel='stylesheet'">
+    <script rel="preload" src="{{rootURL}}assets/vendor.js"></script>
+    <link integrity="" rel="preload" rel="stylesheet" as="style" href="{{rootURL}}assets/hackernews.css" onload="this.rel='stylesheet'">
 
     {{content-for "head-footer"}}
   </head>
@@ -34,8 +32,13 @@
       </div>
     </div>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/hackernews.js"></script>
+    <script>
+      window.addEventListener('load', function() {
+        let script = document.createElement('script');
+        script.src = '{{rootURL}}assets/hackernews.js';
+        document.head.appendChild(script);
+      });
+    </script>
 
     {{content-for "body-footer"}}
   </body>
