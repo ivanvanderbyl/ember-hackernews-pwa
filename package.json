@@ -11,7 +11,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "start": "PORT=8080 node server.js",
+    "start": "PORT=8080 node fastboot-server.js",
     "test": "ember test"
   },
   "devDependencies": {
