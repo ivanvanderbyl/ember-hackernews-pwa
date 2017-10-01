@@ -34,7 +34,7 @@ export default Component.extend({
   isSelfLink: computed('url', {
     get() {
       let url = this.get('url');
-      return /^item\?id\=/.test(url);
+      return /^item\?id=/.test(url);
     }
   }),
 
