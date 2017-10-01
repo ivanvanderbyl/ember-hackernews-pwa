@@ -1,4 +1,4 @@
-import Component from 'ember-component';
+import Component from 'ember-component'
 
 const NewsList = Component.extend({
   tagName: 'section',
@@ -6,10 +6,10 @@ const NewsList = Component.extend({
   classNames: ['Items'],
 
   items: []
-});
+})
 
 NewsList.reopenClass({
   positionalParams: ['items']
-});
+})
 
-export default NewsList;
+export default NewsList
