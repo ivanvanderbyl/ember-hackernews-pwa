@@ -11,7 +11,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "start": "PORT=8080 node server/main.js",
+    "start": "PORT=8080 node server.js",
     "test": "ember test"
   },
   "devDependencies": {
@@ -67,6 +67,6 @@
   "private": true,
   "dependencies": {
     "ember-fetch": "^3.2.8",
-    "fastboot-app-server": "^1.0.1"
+    "fastboot-app-server": "^1.0.2"
   }
 }
