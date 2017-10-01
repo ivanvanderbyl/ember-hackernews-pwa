@@ -11,7 +11,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
+    "start": "PORT=8080 node server/main.js",
     "test": "ember test"
   },
   "devDependencies": {
@@ -33,6 +33,7 @@
     "ember-cli-deploy-s3": "^1.0.0",
     "ember-cli-deploy-s3-index": "^1.0.0",
     "ember-cli-eslint": "^3.0.0",
+    "ember-cli-fastboot": "^1.0.5",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.4.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -43,8 +44,6 @@
     "ember-cli-uglify": "^1.2.0",
     "ember-component-css": "^0.3.3",
     "ember-export-application-global": "^2.0.0",
-    "ember-fetch": "^2.1.0",
-    "ember-hammertime": "^1.2.1",
     "ember-inflector": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-native-dom-event-dispatcher": "^0.6.1",
@@ -52,7 +51,7 @@
     "ember-service-worker": "^0.6.6",
     "ember-service-worker-asset-cache": "^0.6.1",
     "ember-service-worker-index": "^0.6.1",
-    "ember-source": "2.14.1",
+    "ember-source": "^2.15.0",
     "ember-web-app": "^1.2.0",
     "ember-web-app-rename": "^1.0.0",
     "eslint-plugin-ember-suave": "^1.0.0",
@@ -62,5 +61,9 @@
   "engines": {
     "node": ">= 4"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "ember-fetch": "^3.2.8",
+    "fastboot-app-server": "^1.0.1"
+  }
 }

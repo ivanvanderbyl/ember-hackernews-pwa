@@ -1,0 +1,7 @@
+runtime: custom
+env: flex
+skip_files:
+- ^(?!dist|server)\/.*$
+handlers:
+- url: /assets/
+  static_dir: dist/assets
