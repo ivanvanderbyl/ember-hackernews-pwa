@@ -10,7 +10,7 @@
     {{content-for "head"}}
 
     <script rel="preload" src="{{rootURL}}assets/vendor.js"></script>
-    <link integrity="" rel="preload" rel="stylesheet" as="style" href="{{rootURL}}assets/hackernews.css" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" integrity="" rel="preload" href="{{rootURL}}assets/hackernews.css">
 
     {{content-for "head-footer"}}
   </head>
@@ -32,13 +32,7 @@
       </div>
     </div>
 
-    <script>
-      window.addEventListener('load', function() {
-        let script = document.createElement('script');
-        script.src = '{{rootURL}}assets/hackernews.js';
-        document.head.appendChild(script);
-      });
-    </script>
+    <script rel="preload" src="{{rootURL}}assets/hackernews.js"></script>
 
     {{content-for "body-footer"}}
   </body>
