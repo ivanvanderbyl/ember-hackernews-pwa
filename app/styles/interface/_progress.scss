@@ -1,104 +1,121 @@
-
 .mdl-progress {
-  display: block;
-  position: relative;
-  height: $bar-height;
-  width: 100%;
-  max-width: 100%;
-  background-color: rgba($progress-main-color,0.24);
+	display: block;
+	position: relative;
+	height: $bar-height;
+	width: 100%;
+	max-width: 100%;
+	background-color: rgba($progress-main-color, 0.24);
 }
 
 .mdl-progress > .bar {
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 0%;
-  transition: width 0.2s $animation-curve-default;
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 0%;
+	transition: width 0.2s $animation-curve-default;
 }
 
 .mdl-progress > .progressbar {
-  background-color: $progress-main-color;
-  z-index: 1;
-  left: 0;
+	background-color: $progress-main-color;
+	z-index: 1;
+	left: 0;
 }
 
 .mdl-progress > .bufferbar {
-  background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
-    linear-gradient(to right, $progress-main-color, $progress-main-color);
-  z-index: 0;
-  left: 0;
+	background-image: linear-gradient(
+			to right,
+			$progress-secondary-color,
+			$progress-secondary-color
+		),
+		linear-gradient(to right, $progress-main-color, $progress-main-color);
+	z-index: 0;
+	left: 0;
 }
 
 .mdl-progress > .auxbar {
-  right: 0;
+	right: 0;
 }
 
 // Webkit only
-@supports (-webkit-appearance:none) {
-  .mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate) > .auxbar,
-  .mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate) > .auxbar {
-    background-image: linear-gradient(to right, $progress-secondary-color, $progress-secondary-color),
-      linear-gradient(to right, $progress-main-color, $progress-main-color);
-    mask: url('/assets/images/buffer.svg?embed');
-  }
+@supports (-webkit-appearance: none) {
+	.mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate)
+		> .auxbar,
+	.mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate)
+		> .auxbar {
+		background-image: linear-gradient(
+				to right,
+				$progress-secondary-color,
+				$progress-secondary-color
+			),
+			linear-gradient(
+				to right,
+				$progress-main-color,
+				$progress-main-color
+			);
+		mask: url('/assets/images/buffer.svg?embed');
+	}
 }
 
 .mdl-progress:not(.mdl-progress--indeterminate) > .auxbar,
 .mdl-progress:not(.mdl-progress__indeterminate) > .auxbar {
-  background-image: linear-gradient(to right, $progress-fallback-buffer-color, $progress-fallback-buffer-color),
-    linear-gradient(to right, $progress-main-color, $progress-main-color);
+	background-image: linear-gradient(
+			to right,
+			$progress-fallback-buffer-color,
+			$progress-fallback-buffer-color
+		),
+		linear-gradient(to right, $progress-main-color, $progress-main-color);
 }
 
 .mdl-progress.mdl-progress--indeterminate > .bar1,
 .mdl-progress.mdl-progress__indeterminate > .bar1 {
-  background-color: $progress-main-color;
-  animation-name: indeterminate1;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+	background-color: $progress-main-color;
+	animation-name: indeterminate1;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 .mdl-progress.mdl-progress--indeterminate > .bar3,
 .mdl-progress.mdl-progress__indeterminate > .bar3 {
-  background-image: none;
-  background-color: $progress-main-color;
-  animation-name: indeterminate2;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+	background-image: none;
+	background-color: $progress-main-color;
+	animation-name: indeterminate2;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
 }
 
 @keyframes indeterminate1 {
-  0% {
-    left: 0%;
-    width: 0%;
-  }
-  50% {
-    left: 25%;
-    width: 75%;
-  }
-  75% {
-    left: 100%;
-    width: 0%;
-  }
+	0% {
+		left: 0%;
+		width: 0%;
+	}
+	50% {
+		left: 25%;
+		width: 75%;
+	}
+	75% {
+		left: 100%;
+		width: 0%;
+	}
 }
 
 @keyframes indeterminate2 {
-  0% {
-    left: 0%;
-    width: 0%;
-  }
-  50% {
-    left: 0%;
-    width: 0%;
-  }
-  75% {
-    left: 0%;
-    width: 25%;
-  }
-  100% {
-    left: 100%;
-    width: 0%;
-  }
+	0% {
+		left: 0%;
+		width: 0%;
+	}
+	50% {
+		left: 0%;
+		width: 0%;
+	}
+	75% {
+		left: 0%;
+		width: 25%;
+	}
+	100% {
+		left: 100%;
+		width: 0%;
+	}
 }

@@ -1,107 +1,108 @@
 & {
-  display: flex;
-  flex-flow: row nowrap;
-  border-bottom: 1px solid $divider-grey;
+	display: flex;
+	flex-flow: row nowrap;
+	border-bottom: 1px solid $divider-grey;
 
-  &:first-of-type {
-    // padding-top: 4.5rem;
-  }
+	// &:first-of-type {
+	// 	// padding-top: 4.5rem;
+	// }
 }
 
 h2 {
-  font-size: 1.1rem;
-  font-weight: normal;
-  margin: 0;
+	font-size: 1.1rem;
+	font-weight: normal;
+	margin: 0;
 }
 
 span.domain {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 span.index {
-  font-size: 1.5rem;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
-  color: rgba(black, 0.24);
-  // text-align: right;
-  min-width: 2rem;
-  display: flex;
-  align-items: flex-start;
-  line-height: 1;
+	font-size: 1.5rem;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+	color: rgba(black, 0.24);
+	// text-align: right;
+	min-width: 2rem;
+	display: flex;
+	align-items: flex-start;
+	line-height: 1;
 }
 
 p {
-  margin: 0;
-  line-height: 1.5rem;
+	margin: 0;
+	line-height: 1.5rem;
 }
 
 a {
-  // display: block;
-  font-weight: 400;
-  margin-bottom: .5rem;
-  line-height: 1.2;
-  text-decoration: none;
-  color: #000;
+	// display: block;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+	line-height: 1.2;
+	text-decoration: none;
+	color: #000;
 
-  &:visited {
-    color: rgba(black, 0.54);
-  }
+	&:visited {
+		color: rgba(black, 0.54);
+	}
 }
 
 .Comments {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  padding: 0 0.5rem;
-  background: rgba(black, 0.01);
-  flex-basis: 48px;
-  font-size: 0.8rem;
-  border-left: 1px solid $divider-grey;
-  @media screen and (min-width: 1200px) {
-    border-right: 1px solid $divider-grey;
-  }
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	padding: 0 0.5rem;
+	background: rgba(black, 0.01);
+	flex-basis: 48px;
+	font-size: 0.8rem;
+	border-left: 1px solid $divider-grey;
+	@media screen and (min-width: 1200px) {
+		border-right: 1px solid $divider-grey;
+	}
 
-  a {
-    margin: 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    // justify-content: center;
-    align-items: center;
+	a {
+		margin: 0;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		align-items: center;
 
-    $icon-size: 1.5rem;
+		$icon-size: 1.5rem;
 
-    &:before {
-      content: "";
-      display: block;
-      background: url("/assets/images/ic_comment_black_24px.svg") no-repeat center center;
-      width: $icon-size;
-      height: $icon-size;
-      background-size: $icon-size $icon-size;
-      opacity: 0.1;
-    }
-  }
+		&:before {
+			content: '';
+			display: block;
+			background: url('/assets/images/ic_comment_black_24px.svg')
+				no-repeat center center;
+			width: $icon-size;
+			height: $icon-size;
+			background-size: $icon-size $icon-size;
+			opacity: 0.1;
+		}
+	}
 }
 
 .metadata > p {
-  font-size: .8rem;
-  color: #666;
+	font-size: 0.8rem;
+	color: #666;
 }
 
 .metadata {
-  padding: .5rem 0 .5rem 0;
-  flex: 1;
+	padding: 0.5rem 0 0.5rem 0;
+	flex: 1;
 
-  > p {
-    display: flex;
-    flex-flow: row nowrap;
+	> p {
+		display: flex;
+		flex-flow: row nowrap;
 
-    span {
-      padding-right: 0.5rem;
-    }
-    // align-items: center;
-  }
+		span {
+			padding-right: 0.5rem;
+		}
+		// align-items: center;
+	}
 
-  span a {
-    text-decoration: underline;
-  }
+	span a {
+		text-decoration: underline;
+	}
 }

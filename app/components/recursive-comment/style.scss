@@ -1,0 +1,38 @@
+& {
+	font-size: 0.9rem;
+
+	header {
+		display: flex;
+		flex-flow: horizontal nowrap;
+
+		.user {
+			color: $primary;
+			margin-right: 0.5rem;
+
+			i.icon {
+				width: 16px;
+				height: 16px;
+				background-size: 16px 16px;
+				background-image: url('/assets/images/ic_person_black_24px.svg');
+				background-repeat: no-repeat;
+				background-position: center center;
+				display: inline-block;
+				text-indent: -999px;
+				overflow: hidden;
+				vertical-align: text-bottom;
+			}
+		}
+	}
+
+	.content {
+		padding-left: 1.2rem;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	article.Comment {
+		padding-left: 1rem;
+	}
+}
