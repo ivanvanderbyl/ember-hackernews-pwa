@@ -1,14 +1,14 @@
 import Component from '@ember/component'
 const Comment = Component.extend({
-	tagName: 'article',
+  tagName: 'article',
 
-	item: null,
+  item: null,
 
-	classNames: ['Comment'],
+  classNames: ['Comment'],
 })
 
 Comment.reopenClass({
-	positionalParams: ['item'],
+  positionalParams: ['item'],
 })
 
 export default Comment

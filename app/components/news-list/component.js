@@ -1,15 +1,15 @@
-import Component from 'ember-component'
+import Component from '@ember/component'
 
 const NewsList = Component.extend({
   tagName: 'section',
 
   classNames: ['Items'],
 
-  items: []
+  items: [],
 })
 
 NewsList.reopenClass({
-  positionalParams: ['items']
+  positionalParams: ['items'],
 })
 
 export default NewsList

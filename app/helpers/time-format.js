@@ -1,4 +1,4 @@
-import Helper from 'ember-helper'
+import { helper } from '@ember/component/helper'
 
 function timeSince(timeStamp, now) {
   let secondsPast = (now.getTime() - timeStamp.getTime()) / 1000
@@ -36,4 +36,4 @@ export function timeFormat([date, compareDate = null] /* , hash*/) {
   return `${timeSince(date, compareDate)}`
 }
 
-export default Helper.helper(timeFormat)
+export default helper(timeFormat)

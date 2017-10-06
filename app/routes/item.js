@@ -1,8 +1,6 @@
-import Ember from 'ember'
+import Route from '@ember/routing/route'
+import { run } from '@ember/runloop'
 import fetch from 'fetch'
-import Route from 'ember-route'
-
-const { run } = Ember
 
 export default Route.extend({
   apiHost: 'https://node-hnapi.herokuapp.com',
@@ -20,5 +18,5 @@ export default Route.extend({
   activate() {
     this._super(...arguments)
     run.next(() => window.scrollTo(0, 0))
-  }
+  },
 })

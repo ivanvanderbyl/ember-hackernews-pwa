@@ -54,7 +54,7 @@ module.exports = function(defaults) {
     },
 
     inlineContent: {
-      'loader-styles': 'loader.css',
+      // 'loader-styles': 'loader.css',
     },
 
     vendorFiles: {

@@ -1,6 +1,5 @@
-import Component from 'ember-component'
-import computed from 'ember-computed'
-
+import Component from '@ember/component'
+import { computed } from '@ember/object'
 const { equal } = computed
 export default Component.extend({
   tagName: 'article',
@@ -35,13 +34,13 @@ export default Component.extend({
     get() {
       let url = this.get('url')
       return /^item\?id=/.test(url)
-    }
+    },
   }),
 
   timestamp: computed('time', {
     get() {
       let time = this.get('time')
       return new Date(time * 1e3)
-    }
-  })
+    },
+  }),
 })

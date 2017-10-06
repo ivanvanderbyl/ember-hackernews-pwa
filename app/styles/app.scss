@@ -1,98 +1,99 @@
 // @import "reset";
 @import 'variables';
+@import 'loader';
 
 html,
 body {
-	font-family: system-ui, sans-serif;
-	padding: 0;
-	margin: 0;
-	font-size: $font-size;
-	box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: $font-size;
+  box-sizing: border-box;
 }
 
 html * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	margin-top: 48px;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  margin-top: 48px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p.secondary {
-	color: $secondary-grey;
+  color: $secondary-grey;
 }
 
 .Items {
-	max-width: 1200px;
-	margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .Container {
-	padding: 0 1rem 1rem;
-	max-width: 1200px;
-	margin: 0 auto;
+  padding: 0 1rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .Loading {
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 article.Item {
-	max-width: 720px;
-	padding: 1rem 0;
+  max-width: 720px;
+  padding: 1rem 0;
 
-	a {
-		font-weight: 400;
-		margin-bottom: 0.5rem;
-		line-height: 1.2;
-		text-decoration: none;
-		color: #000;
+  a {
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-decoration: none;
+    color: #000;
 
-		&:visited {
-			color: rgba(black, 0.54);
-		}
-	}
+    &:visited {
+      color: rgba(black, 0.54);
+    }
+  }
 
-	> header {
-		padding-bottom: 1rem;
-	}
+  > header {
+    padding-bottom: 1rem;
+  }
 
-	h2 {
-		font-weight: lighter;
-		font-size: 1.5rem;
-		line-height: 1.1rem;
-		margin: 0;
+  h2 {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    line-height: 1.1rem;
+    margin: 0;
 
-		span.domain {
-			font-size: 1rem;
-		}
-	}
+    span.domain {
+      font-size: 1rem;
+    }
+  }
 }
 .Notice {
-	display: flex;
-	flex-flow: column;
-	width: 100vw;
-	height: 100vh;
-	justify-content: center;
-	align-content: center;
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
 
-	p {
-		text-align: center;
-		border: 1px solid $divider-grey;
-		border-radius: 3px;
-		padding: 0.5rem;
-		margin: 0 2rem;
-	}
+  p {
+    text-align: center;
+    border: 1px solid $divider-grey;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 0 2rem;
+  }
 }
 
 foo.reset {
-	color: black;
+  color: black;
 }
 
 @import 'pod-styles';

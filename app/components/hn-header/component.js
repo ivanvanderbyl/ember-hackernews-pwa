@@ -1,6 +1,5 @@
-import Component from 'ember-component'
-import Ember from 'ember'
-const { run } = Ember
+import Component from '@ember/component'
+import { run } from '@ember/runloop'
 
 export default Component.extend({
   tagName: 'header',
@@ -20,10 +19,10 @@ export default Component.extend({
       this.originalHeight = clientHeight
 
       document.addEventListener('touchmove', this._handleScroll.bind(this), {
-        passive: true
+        passive: true,
       })
       window.addEventListener('scroll', this._handleScroll.bind(this), {
-        passive: true
+        passive: true,
       })
 
       this._handleScroll()
@@ -42,5 +41,5 @@ export default Component.extend({
       let { originalTopOffset } = this
       this.set('floated', window.pageYOffset > originalTopOffset)
     })
-  }
+  },
 })
