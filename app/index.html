@@ -9,21 +9,19 @@
 
     {{content-for "head"}}
 
-    <script rel="preload" src="{{rootURL}}assets/vendor.js"></script>
-    <link rel="stylesheet" integrity="" rel="preload" href="{{rootURL}}assets/hackernews.css">
+    {{content-for 'loader-styles'}}
 
     {{content-for "head-footer"}}
   </head>
   <body>
-
     <noscript>
       <h4 style="text-align:center;font-family: system-ui, sans-serif">
         Sorry, JavaScript needs to be enabled in order to run this application.
       </h4>
     </noscript>
-
+    
     {{content-for "body"}}
-
+    
     <div class="Loading" id="preloader">
       <div class="mdl-progress mdl-js-progress mdl-progress--indeterminate is-upgraded">
         <div class="progressbar bar bar1"></div>
@@ -31,9 +29,22 @@
         <div class="auxbar bar bar3"></div>
       </div>
     </div>
-
-    <script rel="preload" src="{{rootURL}}assets/hackernews.js"></script>
+    
+    <script>
+      [
+        '{{rootURL}}assets/vendor.js',
+        '{{rootURL}}assets/hackernews.js'
+      ].forEach(function(src) {
+        var script = document.createElement('script');
+        script.src = src;
+        script.async = false;
+        document.head.appendChild(script);
+      });
+    </script>
+      
+    <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css" async>
 
     {{content-for "body-footer"}}
   </body>
-</html>
+  </html>
+  
