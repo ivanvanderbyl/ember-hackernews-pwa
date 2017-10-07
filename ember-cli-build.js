@@ -11,10 +11,10 @@ module.exports = function(defaults) {
       includePolyfill: false,
     },
 
-    babel: {
-      // plugins: ['minify-dead-code-elimination'],
-      // presets: ['minify'],
-    },
+    // babel: {
+    //   // plugins: ['minify-dead-code-elimination'],
+    //   // presets: ['minify'],
+    // },
 
     'asset-cache': {
       version: '5.1',
