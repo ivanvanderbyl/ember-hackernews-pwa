@@ -30,18 +30,9 @@
       </div>
     </div>
     
-    <script>
-      [
-        '{{rootURL}}assets/vendor.js',
-        '{{rootURL}}assets/hackernews.js'
-      ].forEach(function(src) {
-        var script = document.createElement('script');
-        script.src = src;
-        script.async = false;
-        document.head.appendChild(script);
-      });
-    </script>
-      
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script async src="{{rootURL}}assets/hackernews.js"></script>
+    
     <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css" async>
 
     {{content-for "body-footer"}}
