@@ -20,6 +20,16 @@ module.exports = function(defaults) {
       version: '5.1',
     },
 
+    'ember-service-worker': {
+      registrationStrategy: 'async',
+    },
+
+    'ember-cli-critical': {
+      critical: {
+        minify: true,
+      },
+    },
+
     fingerprint: {
       extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
       // prepend: 'https://hackernews.io/'
