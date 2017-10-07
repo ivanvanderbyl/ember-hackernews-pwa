@@ -35,4 +35,15 @@
   article.Comment {
     padding-left: 1rem;
   }
+
+  a {
+    color: #1976d2;
+    &:visited {
+      color: #63a4ff;
+    }
+
+    &:hover {
+      color: #004ba0;
+    }
+  }
 }
