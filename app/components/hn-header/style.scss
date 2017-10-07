@@ -7,8 +7,7 @@
   background-color: $primary;
   color: white;
   line-height: 48px;
-  transition: box-shadow 0.15s ease-out,
-              line-height 0.15s;
+  transition: box-shadow 0.15s ease-out, line-height 0.15s;
 }
 
 nav {
@@ -24,9 +23,8 @@ nav {
 
 &.is-floated {
   line-height: 32px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-              0 1px 5px 0 rgba(0, 0, 0, 0.12),
-              0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
   .logo a {
     @media screen and (max-width: 425px) {
@@ -44,7 +42,8 @@ li {
   list-style: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: white;
 }
 
@@ -59,13 +58,13 @@ ol.links {
 
   &:first-child {
     // margin-left: 3rem;
-  };
+  }
 
   .link {
     a {
       color: #fff;
       text-decoration: none;
-      margin: 0 .4rem;
+      margin: 0 0.4rem;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -93,7 +92,7 @@ ol.links {
 }
 
 .logo {
-  margin-right: .6rem;
+  margin-right: 0.6rem;
 
   a {
     white-space: nowrap;
@@ -105,15 +104,24 @@ ol.links {
 
     &:before {
       display: block;
-      content: "";
-      background: url("/assets/images/ember-hn-inverted.svg") no-repeat center center;
+      content: '';
+      background: url('/assets/images/ember-hn-inverted1x.png') no-repeat center
+        center;
+
+      @media (-webkit-min-device-pixel-ratio: 2),
+        (-o-min-device-pixel-ratio: 3 / 2),
+        (min-device-pixel-ratio: 2) {
+        background: url('/assets/images/ember-hn-inverted@2x.png') no-repeat
+          center center;
+        background-size: 32px 32px;
+      }
+
       background-size: 32px 32px;
       width: 32px;
       height: 32px;
       margin-right: 0.5rem;
-      transition: width 0.15s ease-out,
-                  height 0.15s ease-out,
-                  background-size 0.15s ease-out;
+      transition: width 0.15s ease-out, height 0.15s ease-out,
+        background-size 0.15s ease-out;
     }
   }
 
@@ -138,5 +146,3 @@ ol.links {
   flex-grow: 1;
   text-align: right;
 }*/
-
-
