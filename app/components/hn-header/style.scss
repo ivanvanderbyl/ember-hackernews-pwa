@@ -9,11 +9,17 @@
   color: white;
   line-height: 48px;
   transition: box-shadow 0.15s ease-out, line-height 0.15s;
-  box-shadow: border-box;
+  box-sizing: border-box;
+}
+
+& > div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
 nav {
-  box-shadow: border-box;
+  box-sizing: border-box;
   padding: 0 1rem;
   margin: 0;
   width: 100%;
