@@ -17,7 +17,7 @@ module.exports = function(defaults) {
     // },
 
     'asset-cache': {
-      version: '5.1',
+      version: '5.2',
     },
 
     'ember-service-worker': {
