@@ -56,15 +56,18 @@ module.exports = function(defaults) {
       enabled: true,
       htmlFiles: ['index.html'],
       minifierOptions: {
+        useShortDoctype: true,
+        sortClassName: true,
+        sortAttributes: true,
+        removeRedundantAttributes: true,
+        removeOptionalTags: true,
+        removeAttributeQuotes: true,
+        maxLineLength: 80,
         collapseWhitespace: true,
         removeComments: true,
         minifyJS: true,
-        minifyCSS: true,
+        minifyCSS: false,
       },
-    },
-
-    inlineContent: {
-      // 'loader-styles': 'loader.css',
     },
 
     vendorFiles: {
