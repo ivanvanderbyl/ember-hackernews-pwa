@@ -10,8 +10,7 @@
   },
   "repository": "",
   "scripts": {
-    "build": "ember build; npm run critical-css",
-    "critical-css": "cat dist/index.html | critical --base dist/ --inline --minify > index.tmp && mv index.tmp dist/index.html",
+    "build": "ember build",
     "start": "PORT=8080 node fastboot-server.js",
     "test": "ember test"
   },
@@ -24,6 +23,7 @@
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.8.2",
     "ember-cli-babili": "^0.2.0",
+    "ember-cli-critical": "^0.1.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-deploy": "^1.0.0",
     "ember-cli-deploy-brotli": "^0.1.4",
