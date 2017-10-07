@@ -27,6 +27,7 @@ module.exports = function(defaults) {
     'ember-cli-critical': {
       critical: {
         minify: true,
+        inlineImages: true,
       },
     },
 
