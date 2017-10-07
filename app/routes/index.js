@@ -4,8 +4,8 @@ import fetch from 'fetch'
 import { computed, getWithDefault } from '@ember/object'
 
 export default Route.extend({
-  // apiHost: 'https://hackernews.com/api',
-  apiHost: 'https://api.hackerwebapp.com',
+  apiHost: 'https://api.hackernews.io',
+  // apiHost: 'https://api.hackerwebapp.com',
   isFastBoot: false,
 
   page: 'news',
