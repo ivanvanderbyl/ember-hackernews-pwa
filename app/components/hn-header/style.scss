@@ -1,22 +1,25 @@
 & {
   position: fixed;
   display: block;
-  width: 100%;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background-color: $primary;
   color: white;
   line-height: 48px;
   transition: box-shadow 0.15s ease-out, line-height 0.15s;
+  box-shadow: border-box;
 }
 
 nav {
+  box-shadow: border-box;
   padding: 0 1rem;
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
   max-width: 1200px;
   display: flex;
-  flex-flow: horizontal nowrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -51,14 +54,10 @@ ol.links {
   padding: 0;
   margin: 0;
   display: flex;
-  flex-flow: horizontal nowrap;
+  flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
-
-  &:first-child {
-    // margin-left: 3rem;
-  }
 
   .link {
     a {
@@ -98,7 +97,7 @@ ol.links {
     white-space: nowrap;
     text-decoration: none;
     display: flex;
-    flex-flow: horizontal nowrap;
+    flex-flow: row nowrap;
     align-content: center;
     line-height: 2rem;
 

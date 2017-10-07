@@ -16,6 +16,10 @@ h2 {
 
 span.domain {
   font-size: 1rem;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 span.index {
