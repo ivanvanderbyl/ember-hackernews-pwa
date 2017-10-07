@@ -17,11 +17,33 @@ module.exports = function(defaults) {
     // },
 
     'asset-cache': {
-      version: '5.2',
+      version: '6',
+
+      include: [
+        'assets/hn*.js',
+        // 'assets/**/**/*',
+        // 'assets/images/ember-hn192.png',
+        // 'assets/images/ember-hn512.png',
+        // 'assets/images/ember-hn180.png',
+      ],
+      exclude: [
+        'assets/**/*.map',
+        'assets/vendor*.js',
+        'assets/vendor*.css',
+        'assets/hackernews*.js',
+        'assets/hackernews*.css',
+        'assets/*test*',
+        'assets/passed.png',
+        'assets/failed.png',
+      ],
+
+      lenientErrors: false,
     },
 
     'ember-service-worker': {
-      registrationStrategy: 'async',
+      // registrationStrategy: 'async',
+      registrationStrategy: 'inline',
+      versionStrategy: 'every-build',
     },
 
     'ember-cli-critical': {
