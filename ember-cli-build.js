@@ -71,6 +71,36 @@ module.exports = function(defaults) {
       'jquery.js': null,
       'vendor.css': null,
     },
+
+    emberCliConcat: {
+      enabled: true,
+      outputDir: 'assets',
+      outputFileName: 'hn',
+      useSelfClosingTags: false,
+      wrapScriptsInFunction: false,
+      treeTypes: ['all'],
+
+      js: {
+        concat: true,
+        contentFor: 'concat-js',
+        footer: null,
+        header: null,
+        preserveOriginal: true,
+      },
+
+      css: {
+        concat: false,
+        contentFor: 'concat-css',
+        footer: null,
+        header: null,
+        preserveOriginal: true,
+      },
+    },
+
+    imagemin: {
+      enabled: true,
+      plugins: [require('imagemin-optipng')(), require('imagemin-svgo')()],
+    },
   })
 
   // Use `app.import` to add additional libraries to the generated

@@ -31,12 +31,10 @@
         <div class="auxbar bar bar3"></div>
       </div>
     </div>
-    
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script async src="{{rootURL}}assets/hackernews.js"></script>
-    
+      
     <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css" async>
 
+    {{content-for "concat-js"}}
     {{content-for "body-footer"}}
   </body>
   </html>
