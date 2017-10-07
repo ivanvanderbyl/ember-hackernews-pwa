@@ -61,7 +61,7 @@ module.exports = function(defaults) {
         sortClassName: true,
         sortAttributes: true,
         removeRedundantAttributes: true,
-        removeOptionalTags: true,
+        // removeOptionalTags: true,
         removeAttributeQuotes: true,
         maxLineLength: 80,
         collapseWhitespace: true,

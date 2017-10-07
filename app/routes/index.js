@@ -2,17 +2,52 @@ import { run } from '@ember/runloop'
 import Route from 'ember-route'
 import fetch from 'fetch'
 import { computed, getWithDefault } from '@ember/object'
+import { inject as service } from '@ember/service'
 
 export default Route.extend({
   apiHost: 'https://api.hackernews.io',
   // apiHost: 'https://api.hackerwebapp.com',
-  isFastBoot: false,
+  fastboot: service(),
+  isFastBoot: computed.alias('fastboot.isFastBoot'),
 
   page: 'news',
 
   model() {
-    let pageUrl = `${this.get('apiHost')}/${this.get('page')}`
-    return fetch(pageUrl).then(response => response.json())
+    let shoebox = this.get('fastboot.shoebox')
+    let shoeboxStore = shoebox.retrieve('hn-data')
+    let isFastBoot = this.get('isFastBoot')
+    let page = this.get('page')
+    let pageUrl = `${this.get('apiHost')}/${page}`
+
+    if (isFastBoot) {
+      if (!shoeboxStore) {
+        shoeboxStore = {}
+        shoebox.put('hn-data', shoeboxStore)
+      }
+      let lastPageTimestamp = shoeboxStore[`${page}Timestamp`]
+      if (
+        !lastPageTimestamp ||
+        (lastPageTimestamp &&
+          Number(lastPageTimestamp) < new Date().valueOf() - 60e3)
+      ) {
+        console.info('Fetching new items')
+        return fetch(pageUrl)
+          .then(response => response.json())
+          .then(items => {
+            let timestamp = new Date().valueOf()
+            shoeboxStore[page] = items
+            shoeboxStore[`${page}Timestamp`] = timestamp
+            return []
+          })
+      }
+    } else {
+      if (shoeboxStore && shoeboxStore[page]) {
+        console.log(shoeboxStore)
+        return shoeboxStore[page]
+      } else {
+        return fetch(pageUrl).then(response => response.json())
+      }
+    }
   },
 
   setupController(controller, items = []) {
