@@ -1,7 +1,8 @@
 {
   "name": "hackernews",
   "version": "0.0.0",
-  "description": "An Ember implementation of HackerNews as a Progressive Web App",
+  "description":
+    "An Ember implementation of HackerNews as a Progressive Web App",
   "license": "MIT",
   "author": "Ivan Vanderbyl",
   "directories": {
@@ -38,8 +39,8 @@
     "ember-cli-html-minifier": "^0.2.1",
     "ember-cli-htmlbars": "^2.0.3",
     "ember-cli-htmlbars-inline-precompile": "^1.0.2",
+    "ember-cli-imagemin": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
-    "ember-cli-inline-content": "^0.4.1",
     "ember-cli-postcss": "^3.5.2",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-sass": "^7.0.0",
