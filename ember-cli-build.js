@@ -21,7 +21,7 @@ module.exports = function(defaults) {
 
       include: [
         'assets/hn*.js',
-        // 'assets/**/**/*',
+        'assets/**/**/*',
         // 'assets/images/ember-hn192.png',
         // 'assets/images/ember-hn512.png',
         // 'assets/images/ember-hn180.png',
@@ -31,7 +31,7 @@ module.exports = function(defaults) {
         'assets/vendor*.js',
         'assets/vendor*.css',
         'assets/hackernews*.js',
-        'assets/hackernews*.css',
+        // 'assets/hackernews*.css',
         'assets/*test*',
         'assets/passed.png',
         'assets/failed.png',
