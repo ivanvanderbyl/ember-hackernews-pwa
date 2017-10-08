@@ -13,6 +13,7 @@
     </ol>
 
     <ol class="links">
+      {{#unless isOnline}}<li class="offline" title="Viewing offline version">Offline</li>{{/unless}}
       <li class="link">{{#link-to "about"}}about{{/link-to}}</li>
     </ol>
   </nav>

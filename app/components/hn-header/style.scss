@@ -5,11 +5,21 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: $primary;
+  background-color: $secondary-grey;
   color: white;
   line-height: 48px;
   transition: box-shadow 0.15s ease-out, line-height 0.15s;
   box-sizing: border-box;
+  transition: background-color 0.25s ease-in-out;
+  &.is-online {
+    background-color: $primary;
+  }
+}
+
+.offline {
+  color: rgba(white, 0.54);
+  cursor: help;
+  line-height: 24px;
 }
 
 & > div {

@@ -8,7 +8,9 @@ export default Component.extend({
 
   floated: false,
 
-  classNameBindings: ['floated:is-floated:not-floated'],
+  isOnline: true,
+
+  classNameBindings: ['floated:is-floated:not-floated', 'isOnline'],
 
   didInsertElement() {
     if (typeof FastBoot === 'undefined') {
@@ -25,6 +27,10 @@ export default Component.extend({
         passive: true,
       })
 
+      window.addEventListener('offline', event => this._handleOffline(event))
+      window.addEventListener('online', event => this._handleOnline(event))
+      run(() => this.set('isOnline', navigator.onLine))
+
       this._handleScroll()
     }
   },
@@ -34,6 +40,14 @@ export default Component.extend({
       document.removeEventListener('touchmove', this._handleScroll)
       window.removeEventListener('scroll', this._handleScroll)
     }
+  },
+
+  _handleOffline(event) {
+    run(() => this.set('isOnline', false))
+  },
+
+  _handleOnline(event) {
+    run(() => this.set('isOnline', true))
   },
 
   _handleScroll() {
