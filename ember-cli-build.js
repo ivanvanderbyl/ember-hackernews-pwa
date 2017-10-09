@@ -107,6 +107,7 @@ module.exports = function(defaults) {
       treeTypes: ['all'],
 
       js: {
+        useAsync: true,
         concat: true,
         contentFor: 'concat-js',
         footer: null,
