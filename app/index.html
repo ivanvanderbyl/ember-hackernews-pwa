@@ -36,8 +36,15 @@
     </div>
 
     <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css" async>
-
-    {{content-for "concat-js"}}
+    <script>
+      performance.mark('start')
+    </script>
+      {{content-for "concat-js"}}
+    <script>
+      performance.mark('end')
+      performance.measure('parseTime', "start", "end")
+      console.log(performance.getEntriesByName('parseTime')[0].duration)
+    </script>
     {{content-for "body-footer"}}
   </body>
   </html>
