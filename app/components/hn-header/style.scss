@@ -11,6 +11,7 @@
   transition: box-shadow 0.15s ease-out, line-height 0.15s;
   box-sizing: border-box;
   transition: background-color 0.25s ease-in-out;
+
   &.is-online {
     background-color: $primary;
   }
@@ -44,6 +45,7 @@ nav {
   line-height: 32px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
     0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  transition: line-height 0.15s;
 
   .logo a {
     @media screen and (max-width: 425px) {
@@ -53,6 +55,8 @@ nav {
       width: 24px;
       height: 32px;
       background-size: 24px 24px;
+      transition: width 0.15s ease-out, height 0.15s ease-out,
+      background-size 0.15s ease-out;
     }
   }
 }
@@ -88,7 +92,7 @@ ol.links {
       height: 100%;
     }
 
-    a:after {
+    a.active:after {
       display: block;
       content: '';
       background: #fff;
@@ -96,12 +100,6 @@ ol.links {
       position: absolute;
       width: 100%;
       bottom: 0;
-      transition: transform 300ms ease-out;
-      transform: translateY(3px);
-    }
-
-    a.active:after {
-      transform: translateY(0);
     }
   }
 }
@@ -135,8 +133,6 @@ ol.links {
       width: 32px;
       height: 32px;
       margin-right: 0.5rem;
-      transition: width 0.15s ease-out, height 0.15s ease-out,
-        background-size 0.15s ease-out;
     }
   }
 
@@ -153,11 +149,3 @@ ol.links {
   }
 }
 
-/*.item {
-  height: 100%;
-}
-
-.item:last-child {
-  flex-grow: 1;
-  text-align: right;
-}*/

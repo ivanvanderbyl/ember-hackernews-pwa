@@ -1,9 +1,11 @@
-<header>
-  <span class="user"><i class="icon">person</i> {{item.user}}</span>
-  {{time-format item.time}}
-</header>
-<div class="content">{{{item.content}}}</div>
+<article class="Comment">
+  <header>
+    <span class="user"><i class="icon">person</i> {{@item.user}}</span>
+    {{time-format @item.time}}
+  </header>
+  <div class="content">{{{@item.content}}}</div>
 
-{{#each item.comments key="id" as |item|}}
-  {{recursive-comment item}}
-{{/each}}
+  {{#each @item.comments key="id" as |item|}}
+    <RecursiveComment @item={{item}} />
+  {{/each}}
+</article>

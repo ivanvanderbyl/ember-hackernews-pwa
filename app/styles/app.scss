@@ -1,4 +1,3 @@
-// @import "reset";
 @import 'variables';
 @import 'loader';
 
@@ -90,10 +89,6 @@ article.Item {
     padding: 0.5rem;
     margin: 0 2rem;
   }
-}
-
-foo.reset {
-  color: black;
 }
 
 @import 'pod-styles';

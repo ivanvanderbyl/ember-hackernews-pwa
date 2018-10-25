@@ -2,49 +2,23 @@
 <html lang="en-US">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css">
+    {{content-for "concat-js"}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HackerNews</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link rel="dns-prefetch" href="https://api.hackernews.io/">
-    <!-- <link rel="preconnect" href="https://api.hackernews.io/" crossorigin> -->
     <link href="https://api.hackernews.io/news" rel="prefetch" crossorigin as="fetch" type="application/json">
-    <!-- <link rel="prefetch" href="/sw.js" async> -->
     <link rel="prefetch" href="/assets/images/ember-hn180.png" as="image">
     <link rel="canonical" href="https://hackernews.com/" />
     <meta name="theme-color" content="#dd6a58">
-
     {{content-for "head"}}
     {{content-for "head-footer"}}
   </head>
   <body>
-    <noscript>
-      <h4 style="text-align:center;font-family: system-ui, sans-serif">
-        Sorry, JavaScript needs to be enabled in order to run this application.
-      </h4>
-    </noscript>
-
     {{content-for "body"}}
-
-    <div class="Loading" id="preloader">
-      <div class="mdl-progress mdl-js-progress mdl-progress--indeterminate is-upgraded">
-        <div class="progressbar bar bar1"></div>
-        <div class="bufferbar bar bar2"></div>
-        <div class="auxbar bar bar3"></div>
-      </div>
-    </div>
-
-    <link rel="stylesheet" integrity="" href="{{rootURL}}assets/hackernews.css" async>
-    <script>
-      performance.mark('start')
-    </script>
-      {{content-for "concat-js"}}
-    <script>
-      performance.mark('end')
-      performance.measure('parseTime', "start", "end")
-      console.log(performance.getEntriesByName('parseTime')[0].duration)
-    </script>
     {{content-for "body-footer"}}
   </body>
   </html>

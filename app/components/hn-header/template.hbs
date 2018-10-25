@@ -1,21 +1,36 @@
-<div>
-  <nav>
-    <ol class="links">
-      <li class="logo">
-        {{#link-to "index"}}<span>HackerNews</span>{{/link-to}}
-      </li>
-
-      <li title="Top Posts" class="link">{{#link-to "index"}}top{{/link-to}}</li>
-      <li title="New Posts" class="link">{{#link-to "new"}}new{{/link-to}}</li>
-      <li title="Show HN" class="link">{{#link-to "show"}}show{{/link-to}}</li>
-      <li title="Ask HN" class="link">{{#link-to "ask"}}ask{{/link-to}}</li>
-      <li title="Jobs" class="link">{{#link-to "jobs"}}jobs{{/link-to}}</li>
-    </ol>
-
-    <ol class="links">
-      {{#unless isOnline}}<li class="offline" title="Viewing offline version">Offline</li>{{/unless}}
-      <li class="link">{{#link-to "about"}}about{{/link-to}}</li>
-    </ol>
-  </nav>
-
-</div>
+<nav>
+  <ol class="links">
+    <li class="logo">
+      {{#link-to "index"}}<span>HackerNews</span>{{/link-to}}
+    </li>
+    <li
+      title="Top Posts"
+      class="link"
+    >{{#link-to "index"}}top{{/link-to}}</li>
+    <li
+      title="New Posts"
+      class="link"
+    >{{#link-to "new"}}new{{/link-to}}</li>
+    <li
+      title="Show HN"
+      class="link"
+    >{{#link-to "show"}}show{{/link-to}}</li>
+    <li
+      title="Ask HN"
+      class="link"
+    >{{#link-to "ask"}}ask{{/link-to}}</li>
+    <li
+      title="Jobs"
+      class="link"
+    >{{#link-to "jobs"}}jobs{{/link-to}}</li>
+  </ol>
+  <ol class="links">
+    {{#unless isOnline}}
+      <li
+        class="offline"
+        title="Viewing offline version"
+      >Offline</li>
+    {{/unless}}
+    <li class="link">{{#link-to "about"}}about{{/link-to}}</li>
+  </ol>
+</nav>

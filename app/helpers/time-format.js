@@ -2,6 +2,7 @@ import { helper } from '@ember/component/helper'
 
 function timeSince(timeStamp, now) {
   let secondsPast = (now.getTime() - timeStamp.getTime()) / 1000
+
   if (secondsPast < 60) {
     return `${parseInt(secondsPast)}s`
   }
@@ -25,15 +26,15 @@ function timeSince(timeStamp, now) {
   }
 }
 
-export function timeFormat([date, compareDate = null] /* , hash*/) {
+export function timeFormat(props) {
+  const date = props[0]
+  const compareDate = props[1] || new Date()
+
   if (!isNaN(date) && String(date).length === 10) {
     date = new Date(date * 1e3)
   }
 
-  if (!compareDate) {
-    compareDate = new Date()
-  }
-  return `${timeSince(date, compareDate)}`
+  return timeSince(date, compareDate)
 }
 
 export default helper(timeFormat)

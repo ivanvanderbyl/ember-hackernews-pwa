@@ -16,7 +16,7 @@
     </header>
 
     {{#each item.comments key="id" as |item|}}
-      {{recursive-comment item}}
+      <RecursiveComment @item=item />
     {{else}}
       <p class="secondary">This story doesn't have any comments yet.</p>
     {{/each}}

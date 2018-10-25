@@ -2,10 +2,6 @@
   display: flex;
   flex-flow: row nowrap;
   border-bottom: 1px solid $divider-grey;
-
-  // &:first-of-type {
-  // 	// padding-top: 4.5rem;
-  // }
 }
 
 h2 {
@@ -103,7 +99,6 @@ a {
     span {
       padding-right: 0.5rem;
     }
-    // align-items: center;
   }
 
   span a {

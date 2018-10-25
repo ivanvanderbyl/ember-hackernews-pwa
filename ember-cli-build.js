@@ -2,39 +2,33 @@
 'use strict'
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app')
-const autoprefixer = require('autoprefixer')
-const targets = require('./config/targets')
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    sourcemaps: {
+      enabled: false,
+    },
+    autoprefixer: {
+      cascade: false,
+      map: false,
+    },
+    minifyJS: {
+      enabled: false
+    },
     'ember-cli-babel': {
       includePolyfill: false,
     },
-
-    // babel: {
-    //   // plugins: ['minify-dead-code-elimination'],
-    //   // presets: ['minify'],
-    // },
-
     'asset-cache': {
-      version: '6',
+      version: '7',
 
       include: [
+        '/',
         'assets/hn*.js',
         'assets/**/**/*',
-        // 'assets/images/ember-hn192.png',
-        // 'assets/images/ember-hn512.png',
-        // 'assets/images/ember-hn180.png',
       ],
       exclude: [
         'assets/**/*.map',
-        'assets/vendor*.js',
         'assets/vendor*.css',
-        'assets/hackernews*.js',
-        // 'assets/hackernews*.css',
-        'assets/*test*',
-        'assets/passed.png',
-        'assets/failed.png',
       ],
 
       lenientErrors: false,
@@ -46,37 +40,13 @@ module.exports = function(defaults) {
       versionStrategy: 'every-build',
     },
 
-    'ember-cli-critical': {
-      critical: {
-        minify: true,
-        inlineImages: true,
-      },
-    },
-
     fingerprint: {
       extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
-      // prepend: 'https://hackernews.io/'
-    },
-
-    postcssOptions: {
-      compile: {
-        enabled: false,
-      },
-      filter: {
-        enabled: true,
-        plugins: [
-          {
-            module: autoprefixer,
-            options: {
-              browsers: targets.browsers,
-            },
-          },
-        ],
-      },
+      replaceExtensions: ['html', 'css', 'js', 'hbs'],
     },
 
     minifyHTML: {
-      enabled: true,
+      enabled: false,
       htmlFiles: ['index.html'],
       minifierOptions: {
         useShortDoctype: true,
@@ -94,8 +64,8 @@ module.exports = function(defaults) {
     },
 
     vendorFiles: {
-      'jquery.js': null,
       'vendor.css': null,
+      'app-shims.js': null,
     },
 
     emberCliConcat: {
@@ -110,24 +80,13 @@ module.exports = function(defaults) {
         useAsync: true,
         concat: true,
         contentFor: 'concat-js',
-        footer: null,
-        header: null,
         preserveOriginal: true,
       },
 
       css: {
         concat: false,
-        contentFor: 'concat-css',
-        footer: null,
-        header: null,
-        preserveOriginal: true,
       },
-    },
-
-    imagemin: {
-      enabled: true,
-      plugins: [require('imagemin-optipng')(), require('imagemin-svgo')()],
-    },
+    }
   })
 
   // Use `app.import` to add additional libraries to the generated

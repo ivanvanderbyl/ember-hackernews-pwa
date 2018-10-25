@@ -1,82 +1,399 @@
-import { run } from '@ember/runloop'
 import Route from 'ember-route'
 import fetch from 'fetch'
-import { computed, getWithDefault } from '@ember/object'
-import { inject as service } from '@ember/service'
 
 export default Route.extend({
   apiHost: 'https://api.hackernews.io',
-  // apiHost: 'https://api.hackerwebapp.com',
-  fastboot: service(),
-  isFastBoot: computed.alias('fastboot.isFastBoot'),
-
   page: 'news',
 
   model() {
-    let shoebox = this.get('fastboot.shoebox')
-    let shoeboxStore = shoebox.retrieve('hn-data')
-    let isFastBoot = this.get('isFastBoot')
-    let page = this.get('page')
-    let pageUrl = `${this.get('apiHost')}/${page}`
-
-    if (isFastBoot) {
-      if (!shoeboxStore) {
-        shoeboxStore = {}
-        shoebox.put('hn-data', shoeboxStore)
-      }
-      let lastPageTimestamp = shoeboxStore[`${page}Timestamp`]
-      if (
-        !lastPageTimestamp ||
-        (lastPageTimestamp &&
-          Number(lastPageTimestamp) < new Date().valueOf() - 60e3)
-      ) {
-        console.info('Fetching new items')
-        return fetch(pageUrl)
-          .then(response => response.json())
-          .then(items => {
-            let timestamp = new Date().valueOf()
-            shoeboxStore[page] = items
-            shoeboxStore[`${page}Timestamp`] = timestamp
-            return []
-          })
-      }
-    } else {
-      if (shoeboxStore && shoeboxStore[page]) {
-        console.log(shoeboxStore)
-        return shoeboxStore[page]
-      } else {
-        return fetch(pageUrl).then(response => response.json())
-      }
-    }
-  },
-
-  setupController(controller, items = []) {
-    items.forEach((item, index) => (item.position = index + 1))
-    controller.setProperties({ items })
-  },
-
-  resetController(controller) {
-    controller.set('items', [])
-  },
-
-  lastScroll: 0,
-
-  activate() {
-    this._super(...arguments)
-    if (!this.get('isFastBoot')) {
-      run.scheduleOnce('afterRender', this, () =>
-        window.scrollTo(0, this.get('lastScroll')),
-      )
-    }
-  },
-
-  actions: {
-    willTransition() {
-      if (!this.get('isFastBoot')) {
-        this._super(...arguments)
-        let lastScroll = getWithDefault(window || {}, 'scrollY', 0)
-        this.set('lastScroll', lastScroll)
-      }
-    },
+    return [
+      {
+        id: 18302441,
+        title:
+          'In Groundbreaking Decision, Feds Say Hacking DRM to Fix Electronics Is Legal',
+        points: 716,
+        user: 'jbegley',
+        time: 1540487152,
+        time_ago: '3 hours ago',
+        comments_count: 84,
+        type: 'link',
+        url:
+          'https://motherboard.vice.com/en_us/article/xw9bwd/1201-exemptions-right-to-repair',
+        domain: 'motherboard.vice.com',
+      },
+      {
+        id: 18303560,
+        title:
+          'Copyright Office Ruling Imposes Sweeping Right to Repair Reforms',
+        points: 68,
+        user: 'sinak',
+        time: 1540493924,
+        time_ago: 'an hour ago',
+        comments_count: 2,
+        type: 'link',
+        url: 'https://ifixit.org/blog/11951/1201-copyright-final-rule/',
+        domain: 'ifixit.org',
+      },
+      {
+        id: 18302162,
+        title: 'Introducing Hooks',
+        points: 174,
+        user: 'sophiebits',
+        time: 1540484958,
+        time_ago: '4 hours ago',
+        comments_count: 78,
+        type: 'link',
+        url: 'https://reactjs.org/docs/hooks-intro.html',
+        domain: 'reactjs.org',
+      },
+      {
+        id: 18302349,
+        title:
+          'Google paid Andy Rubin $90M while keeping silent about a misconduct claim',
+        points: 351,
+        user: 'untog',
+        time: 1540486380,
+        time_ago: '3 hours ago',
+        comments_count: 222,
+        type: 'link',
+        url:
+          'https://www.nytimes.com/2018/10/25/technology/google-sexual-harassment-andy-rubin.html',
+        domain: 'nytimes.com',
+      },
+      {
+        id: 18301689,
+        title:
+          'Unicorn: lightweight, multi-platform, multi-architecture CPU emulator framework',
+        points: 115,
+        user: 'signa11',
+        time: 1540481712,
+        time_ago: '4 hours ago',
+        comments_count: 28,
+        type: 'link',
+        url: 'https://www.unicorn-engine.org/',
+        domain: 'unicorn-engine.org',
+      },
+      {
+        id: 18302634,
+        title: 'Portrait by AI program sells for $432,000',
+        points: 32,
+        user: 'monkeydust',
+        time: 1540488529,
+        time_ago: '3 hours ago',
+        comments_count: 19,
+        type: 'link',
+        url: 'https://www.bbc.co.uk/news/technology-45980863',
+        domain: 'bbc.co.uk',
+      },
+      {
+        id: 18282590,
+        title: 'Overdose deaths have fallen for six months',
+        points: 53,
+        user: 'danso',
+        time: 1540295952,
+        time_ago: '2 days ago',
+        comments_count: 43,
+        type: 'link',
+        url:
+          'https://www.statnews.com/2018/10/23/overdose-deaths-fall-for-six-months/',
+        domain: 'statnews.com',
+      },
+      {
+        id: 18300458,
+        title: 'How to Raise Money (2013)',
+        points: 108,
+        user: 'munchor',
+        time: 1540471779,
+        time_ago: '7 hours ago',
+        comments_count: 31,
+        type: 'link',
+        url: 'http://paulgraham.com/fr.html',
+        domain: 'paulgraham.com',
+      },
+      {
+        id: 18303065,
+        title: 'Qt Design Studio 1.0 Released',
+        points: 14,
+        user: 'conductor',
+        time: 1540490784,
+        time_ago: '2 hours ago',
+        comments_count: 0,
+        type: 'link',
+        url:
+          'https://blog.qt.io/blog/2018/10/25/qt-design-studio-1-0-released/',
+        domain: 'blog.qt.io',
+      },
+      {
+        id: 18292850,
+        title: 'How to build a Moon base',
+        points: 51,
+        user: 'lainon',
+        time: 1540392418,
+        time_ago: 'a day ago',
+        comments_count: 11,
+        type: 'link',
+        url: 'https://www.nature.com/articles/d41586-018-07107-4',
+        domain: 'nature.com',
+      },
+      {
+        id: 18298407,
+        title: 'The peer review industry: implausible and outrageous',
+        points: 17,
+        user: 'jseliger',
+        time: 1540438637,
+        time_ago: '16 hours ago',
+        comments_count: 0,
+        type: 'link',
+        url:
+          'https://www.the-tls.co.uk/articles/public/peer-review-industry-implausible-outrageous/',
+        domain: 'the-tls.co.uk',
+      },
+      {
+        id: 18300669,
+        title: 'Ply: Lightweight, Dynamic Tracing in Linux',
+        points: 6,
+        user: 'ArtWomb',
+        time: 1540473731,
+        time_ago: '7 hours ago',
+        comments_count: 0,
+        type: 'link',
+        url: 'https://wkz.github.io/ply/',
+        domain: 'wkz.github.io',
+      },
+      {
+        id: 18301909,
+        title:
+          "Show HN: Toodles – Project management directly from the TODO's in your code",
+        points: 50,
+        user: 'aviaviavi',
+        time: 1540483073,
+        time_ago: '4 hours ago',
+        comments_count: 23,
+        type: 'link',
+        url: 'https://github.com/aviaviavi/toodles',
+        domain: 'github.com',
+      },
+      {
+        id: 18301745,
+        title: 'Night Sight for Pixel phones',
+        points: 65,
+        user: 'mattbessey',
+        time: 1540482070,
+        time_ago: '4 hours ago',
+        comments_count: 15,
+        type: 'link',
+        url:
+          'https://www.theverge.com/2018/10/25/18021944/google-night-sight-pixel-3-camera-samples',
+        domain: 'theverge.com',
+      },
+      {
+        id: 18302448,
+        title: 'Playing Mortal Kombat with TensorFlow.js',
+        points: 24,
+        user: 'mgechev',
+        time: 1540487218,
+        time_ago: '3 hours ago',
+        comments_count: 1,
+        type: 'link',
+        url:
+          'https://blog.mgechev.com/2018/10/20/transfer-learning-tensorflow-js-data-augmentation-mobile-net/',
+        domain: 'blog.mgechev.com',
+      },
+      {
+        id: 18301116,
+        title: "MongoDB's Server Side Public License Is Likely Unenforceable",
+        points: 206,
+        user: 'willlll',
+        time: 1540477476,
+        time_ago: '6 hours ago',
+        comments_count: 175,
+        type: 'link',
+        url:
+          'https://www.processmechanics.com/2018/10/18/the-server-side-public-license-is-flawed/',
+        domain: 'processmechanics.com',
+      },
+      {
+        id: 18298645,
+        title:
+          'End-to-end implementation of a machine learning pipeline (2017)',
+        points: 442,
+        user: 'spandan-madan',
+        time: 1540443730,
+        time_ago: '15 hours ago',
+        comments_count: 38,
+        type: 'link',
+        url:
+          'https://spandan-madan.github.io/DeepLearningProject/docs/Deep_Learning_Project-Pytorch.html',
+        domain: 'spandan-madan.github.io',
+      },
+      {
+        id: 18301575,
+        title:
+          'Government Spyware Vendor Left Customer, Victim Data Online for Everyone to See',
+        points: 46,
+        user: 'mzs',
+        time: 1540480904,
+        time_ago: '5 hours ago',
+        comments_count: 5,
+        type: 'link',
+        url:
+          'https://motherboard.vice.com/en_us/article/vbka8b/wolf-intelligence-leak-customer-victim-data-online',
+        domain: 'motherboard.vice.com',
+      },
+      {
+        id: 18301532,
+        title: 'Do the Rich Capture All the Gains from Economic Growth?',
+        points: 162,
+        user: 'josephpmay',
+        time: 1540480613,
+        time_ago: '5 hours ago',
+        comments_count: 145,
+        type: 'link',
+        url:
+          'https://medium.com/@russroberts/do-the-rich-capture-all-the-gains-from-economic-growth-c96d93101f9c',
+        domain: 'medium.com',
+      },
+      {
+        id: 18301361,
+        title:
+          "Ban organophosphate pesticides to protect children's health, experts say",
+        points: 187,
+        user: 'ItsMe000001',
+        time: 1540479403,
+        time_ago: '5 hours ago',
+        comments_count: 73,
+        type: 'link',
+        url:
+          'https://www.theguardian.com/environment/2018/oct/24/entire-pesticide-class-should-be-banned-for-effect-on-childrens-health',
+        domain: 'theguardian.com',
+      },
+      {
+        id: 18299249,
+        title: 'An AWS Region is coming to South Africa',
+        points: 189,
+        user: 'tnolet',
+        time: 1540454208,
+        time_ago: '12 hours ago',
+        comments_count: 50,
+        type: 'link',
+        url:
+          'https://www.allthingsdistributed.com/2018/10/an-aws-region-is-coming-to-south-africa.html',
+        domain: 'allthingsdistributed.com',
+      },
+      {
+        id: 18298802,
+        title: 'Using Dark Mode in CSS with MacOS Mojave',
+        points: 300,
+        user: 'alwillis',
+        time: 1540447076,
+        time_ago: '14 hours ago',
+        comments_count: 101,
+        type: 'link',
+        url: 'https://paulmillr.com/posts/using-dark-mode-in-css/',
+        domain: 'paulmillr.com',
+      },
+      {
+        id: 18294248,
+        title: 'The Case of Jane Doe Ponytail',
+        points: 63,
+        user: 'tonic_section',
+        time: 1540400577,
+        time_ago: 'a day ago',
+        comments_count: 8,
+        type: 'link',
+        url:
+          'https://www.nytimes.com/interactive/2018/10/11/nyregion/sex-workers-massage-parlor.html',
+        domain: 'nytimes.com',
+      },
+      {
+        id: 18301908,
+        title: 'List of 600 free online courses launched by 190 universities',
+        points: 146,
+        user: 'prostoalex',
+        time: 1540483073,
+        time_ago: '4 hours ago',
+        comments_count: 40,
+        type: 'link',
+        url:
+          'https://qz.com/1437623/600-free-online-courses-you-can-take-from-universities-worldwide/',
+        domain: 'qz.com',
+      },
+      {
+        id: 18301190,
+        title: 'The Water Abundance XPrize winner makes water from air',
+        points: 96,
+        user: 'sandyshankar',
+        time: 1540478173,
+        time_ago: '5 hours ago',
+        comments_count: 94,
+        type: 'link',
+        url:
+          'https://www.fastcompany.com/90253718/a-device-that-can-pull-drinking-water-from-the-air-just-won-the-latest-x-prize',
+        domain: 'fastcompany.com',
+      },
+      {
+        id: 18300913,
+        title:
+          'Show HN: WebGazer – Simple and Affordable Website Monitoring Service',
+        points: 40,
+        user: 'xtralife',
+        time: 1540475953,
+        time_ago: '6 hours ago',
+        comments_count: 22,
+        type: 'link',
+        url: 'https://www.webgazer.io/',
+        domain: 'webgazer.io',
+      },
+      {
+        id: 18301538,
+        title:
+          'SpaceX’s Falcon Heavy rocket seems to be a hit with satellite companies',
+        points: 135,
+        user: 'okket',
+        time: 1540480667,
+        time_ago: '5 hours ago',
+        comments_count: 41,
+        type: 'link',
+        url:
+          'https://arstechnica.com/science/2018/10/spacexs-falcon-heavy-rocket-seems-to-be-a-hit-with-satellite-companies/',
+        domain: 'arstechnica.com',
+      },
+      {
+        id: 18300345,
+        title: 'Joanna Rutkowska leaves Qubes OS, joins Golem',
+        points: 162,
+        user: 'pentestercrab',
+        time: 1540470435,
+        time_ago: '8 hours ago',
+        comments_count: 51,
+        type: 'link',
+        url: 'https://www.qubes-os.org/news/2018/10/25/the-next-chapter/',
+        domain: 'qubes-os.org',
+      },
+      {
+        id: 18291743,
+        title: 'Su Hui’s Star Gauge (2012)',
+        points: 49,
+        user: 'panic',
+        time: 1540383503,
+        time_ago: 'a day ago',
+        comments_count: 2,
+        type: 'link',
+        url: 'http://poetrychina.net/wp/welling-magazine/suhui',
+        domain: 'poetrychina.net',
+      },
+      {
+        id: 18302127,
+        title: 'GiveCampus (YC S15) Is Hiring Rails Engineers in SF, DC',
+        points: null,
+        user: null,
+        time: 1540484681,
+        time_ago: '4 hours ago',
+        comments_count: 0,
+        type: 'job',
+        url: 'https://www.givecampus.com/careers#engineering',
+        domain: 'givecampus.com',
+      },
+    ]
   },
 })

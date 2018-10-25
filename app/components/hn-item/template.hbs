@@ -1,26 +1,26 @@
-<span class="index">{{position}}</span>
+<span class="index">{{index}}</span>
 <div class="metadata">
   <h2>
     {{#if isSelfLink}}
-      {{#link-to "item" itemID}}{{title}}{{/link-to}}
+      {{#link-to "item" @itemID}}{{@title}}{{/link-to}}
     {{else}}
-      <a href={{url}}>{{title}}</a>
+      <a href={{@url}}>{{@title}}</a>
     {{/if}}
 
-    {{#if domain}}<span class="domain">({{domain}})</span>{{/if}}
+    {{#if @domain}}<span class="domain">({{@domain}})</span>{{/if}}
   </h2>
   <p>
   	{{#if isJob}}
   		<span>{{time-format timestamp}}</span>
   	{{else}}
-    	<span>{{pluralize safeScore "point"}} by {{by}} {{time-format timestamp}}</span>
+    	<span>{{scoreText}} by {{@by}} {{time-format timestamp}}</span>
     {{/if}}
   </p>
 </div>
 <div class="Comments">
-  {{#link-to "item" itemID}}
-    {{#if commentsCount}}
-      {{commentsCount}}
+  {{#link-to "item" @itemID}}
+    {{#if @commentsCount}}
+      {{@commentsCount}}
     {{else}}
       <span></span>
     {{/if}}
