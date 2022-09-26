@@ -33,7 +33,7 @@
     "ember-cli-deploy-display-revisions": "^1.0.0",
     "ember-cli-deploy-gzip": "^1.0.0",
     "ember-cli-deploy-revision-data": "^1.0.0",
-    "ember-cli-deploy-s3": "^1.0.0",
+    "ember-cli-deploy-s3": "^3.1.0",
     "ember-cli-deploy-s3-index": "^1.0.0",
     "ember-cli-fastboot": "^1.0.5",
     "ember-cli-html-minifier": "^0.2.1",
