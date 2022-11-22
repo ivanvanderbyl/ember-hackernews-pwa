@@ -19,7 +19,7 @@
     "babel-plugin-minify-dead-code-elimination": "^0.1.6",
     "babel-plugin-transform-regenerator": "^6.24.1",
     "broccoli-asset-rev": "^2.4.5",
-    "ember-cli": "^2.15.1",
+    "ember-cli": "^2.18.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.8.2",
     "ember-cli-babili": "^0.2.0",
